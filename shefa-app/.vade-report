@@ -1,0 +1,41 @@
+# Vercel Web Analytics Implementation
+
+## Summary
+Successfully implemented Vercel Web Analytics for the shefa-app project. This plain HTML site now includes the necessary tracking scripts to enable web analytics when deployed to Vercel.
+
+## Changes Made
+
+### Modified Files:
+- **index.html** - Added Vercel Web Analytics tracking scripts
+
+### Implementation Details:
+
+Added the following scripts just before the closing `</head>` tag in index.html:
+
+```html
+<!-- Vercel Web Analytics -->
+<script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+```
+
+## Framework Detection
+This is a plain HTML site (no framework like Next.js, React, etc.), so the HTML implementation approach was used as specified in the Vercel Web Analytics guide for HTML sites.
+
+## How It Works
+- The first script initializes the `window.va` function and queue for analytics
+- The second script loads the Vercel analytics tracking script from `/_vercel/insights/script.js`
+- The script is deferred to avoid blocking page rendering
+- When deployed to Vercel with Analytics enabled, the route `/_vercel/insights/*` will be automatically created
+
+## Next Steps
+1. Deploy the app to Vercel using `vercel deploy`
+2. Enable Web Analytics in the Vercel dashboard (Project â Analytics tab â Enable)
+3. After deployment, verify analytics is working by checking for XHR requests to `/_vercel/insights/view` in the browser's Network tab
+4. View analytics data in the Vercel dashboard under the Analytics tab
+
+## Notes
+- No `@vercel/analytics` package installation is required for plain HTML sites
+- The implementation does not include route support (this is normal for plain HTML implementations)
+- The file line endings were converted from Windows (CRLF) to Unix (LF) format during the implementation
