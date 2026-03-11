@@ -133,14 +133,22 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0 flex items-center">
-                    <span class="text-2xl font-bold brand-font text-blue-600">שפע בר קיימא</span>
+                    <span id="brand-title" class="text-2xl font-bold brand-font text-blue-600">שפע בר קיימא</span>
                 </div>
-                <div class="hidden md:flex space-x-8 space-x-reverse">
-                    <button onclick="scrollToSection('vision')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">החזון</button>
-                    <button onclick="scrollToSection('technology')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">טכנולוגיה</button>
-                    <button onclick="scrollToSection('spirituality')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">חסידות</button>
-                    <button onclick="scrollToSection('ai-insights')" class="text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-2 rounded-md text-sm font-bold transition-colors border border-blue-200">AI וגאולה ✨</button>
-                    <button onclick="scrollToSection('research')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">מחקר</button>
+                <div class="hidden md:flex items-center space-x-4 space-x-reverse">
+                    <div class="flex space-x-8 space-x-reverse">
+                        <button id="nav-vision" onclick="scrollToSection('vision')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">החזון</button>
+                        <button id="nav-readiness" onclick="scrollToSection('readiness')" class="text-amber-700 hover:text-amber-900 bg-amber-50 px-3 py-2 rounded-md text-sm font-bold transition-colors border border-amber-200">הדור מוכן</button>
+                        <button id="nav-technology" onclick="scrollToSection('technology')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">טכנולוגיה</button>
+                        <button id="nav-spirituality" onclick="scrollToSection('spirituality')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">חסידות</button>
+                        <button id="nav-action" onclick="scrollToSection('action')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">עשייה לטוב</button>
+                        <button id="nav-ai" onclick="scrollToSection('ai-insights')" class="text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-2 rounded-md text-sm font-bold transition-colors border border-blue-200">AI וגאולה ✨</button>
+                        <button id="nav-research" onclick="scrollToSection('research')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">מחקר</button>
+                    </div>
+                    <div class="flex items-center rounded-full border border-gray-200 bg-white p-1 shadow-sm">
+                        <button id="lang-btn-he" onclick="setLanguage('he')" class="px-3 py-1.5 rounded-full text-xs font-bold bg-blue-600 text-white">HE</button>
+                        <button id="lang-btn-en" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-full text-xs font-bold text-gray-600">EN</button>
+                    </div>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600 focus:outline-none">
@@ -150,12 +158,18 @@
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-right">
-                <button onclick="scrollToSection('vision')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">החזון</button>
-                <button onclick="scrollToSection('technology')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">טכנולוגיה</button>
-                <button onclick="scrollToSection('spirituality')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">חסידות</button>
-                <button onclick="scrollToSection('ai-insights')" class="block w-full text-right text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-md text-base font-bold">AI וגאולה ✨</button>
-                <button onclick="scrollToSection('research')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">מחקר</button>
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-start">
+                <button id="mobile-nav-vision" onclick="scrollToSection('vision')" class="block w-full text-start text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">החזון</button>
+                <button id="mobile-nav-readiness" onclick="scrollToSection('readiness')" class="block w-full text-start text-amber-700 bg-amber-50 hover:bg-amber-100 px-3 py-2 rounded-md text-base font-bold">הדור מוכן</button>
+                <button id="mobile-nav-technology" onclick="scrollToSection('technology')" class="block w-full text-start text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">טכנולוגיה</button>
+                <button id="mobile-nav-spirituality" onclick="scrollToSection('spirituality')" class="block w-full text-start text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">חסידות</button>
+                <button id="mobile-nav-action" onclick="scrollToSection('action')" class="block w-full text-start text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">עשייה לטוב</button>
+                <button id="mobile-nav-ai" onclick="scrollToSection('ai-insights')" class="block w-full text-start text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-md text-base font-bold">AI וגאולה ✨</button>
+                <button id="mobile-nav-research" onclick="scrollToSection('research')" class="block w-full text-start text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">מחקר</button>
+                <div class="flex items-center gap-2 px-3 pt-2">
+                    <button id="mobile-lang-he" onclick="setLanguage('he')" class="px-3 py-1.5 rounded-full text-xs font-bold bg-blue-600 text-white">HE</button>
+                    <button id="mobile-lang-en" onclick="setLanguage('en')" class="px-3 py-1.5 rounded-full text-xs font-bold bg-gray-100 text-gray-700">EN</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -163,19 +177,22 @@
     <header id="vision" class="pt-24 pb-12 lg:pt-32 lg:pb-24 bg-gradient-to-br from-blue-50 via-white to-amber-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
-                <span class="block">עידן השפע והדעת</span>
-                <span class="block gradient-text mt-2 text-3xl sm:text-5xl">רמב"ם, רובוטיקה וחסידות</span>
+                <span id="hero-title-top" class="block">עידן השפע והדעת</span>
+                <span id="hero-title-bottom" class="block gradient-text mt-2 text-3xl sm:text-5xl">רמב"ם, רובוטיקה וחסידות</span>
             </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+            <p id="hero-description" class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
                 סינתזה ייחודית בין חזון אחרית הימים של הרמב"ם, המהפכה הטכנולוגית (AI ורובוטים), ומודל ה-UBI.
                 העולם מתעלה למצב בו העיסוק היחיד הוא "לדעת את ה'".
             </p>
-            <div class="mt-10 flex justify-center gap-4">
-                <button onclick="scrollToSection('technology')" class="px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <button id="hero-btn-model" onclick="scrollToSection('technology')" class="px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
                     לחקור את המודל
                 </button>
-                <button onclick="scrollToSection('ai-insights')" class="px-8 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2">
-                    סימולטור גאולה
+                <button id="hero-btn-readiness" onclick="scrollToSection('readiness')" class="px-8 py-3 border border-amber-300 text-base font-medium rounded-full text-amber-900 bg-amber-50 hover:bg-amber-100 md:py-4 md:text-lg shadow-md hover:shadow-lg transition-all">
+                    לראות למה העולם מוכן לגאולה
+                </button>
+                <button id="hero-btn-ai" onclick="scrollToSection('ai-insights')" class="px-8 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    <span id="hero-btn-ai-text">סימולטור גאולה</span>
                     <span class="text-amber-500">✨</span>
                 </button>
             </div>
@@ -183,11 +200,119 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
+        <section id="readiness" class="scroll-mt-24">
+            <div class="bg-gradient-to-br from-amber-50 via-white to-blue-50 rounded-3xl p-8 lg:p-12 border border-amber-100 shadow-xl overflow-hidden relative">
+                <div class="absolute top-0 left-0 w-56 h-56 bg-amber-200/30 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-200/30 rounded-full blur-3xl"></div>
+
+                <div class="relative z-10 text-center mb-12">
+                    <span id="readiness-badge" class="inline-block bg-amber-100 text-amber-800 text-sm font-bold px-4 py-1.5 rounded-full">קריאת המציאות של הדור שלנו</span>
+                    <h2 id="readiness-heading" class="text-3xl lg:text-4xl font-bold text-gray-900 brand-font mt-5">העולם מוכן לגאולה</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-amber-500 to-blue-500 mx-auto mt-4 rounded-full"></div>
+                    <p id="readiness-intro" class="mt-5 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        במקום להעמיס טקסט, אפשר להסתכל על המגמה הרחבה של עשרות שנים: פחות עולם של הישרדות עיוורת,
+                        ויותר עולם שמסוגל להכיל שפע, חשיפת שקר, חיפוש אחר משמעות ובעיקר מוכנות לגאולה.
+                    </p>
+                </div>
+
+                <div class="relative z-10 grid grid-cols-1 lg:grid-cols-[1.2fr,0.8fr] gap-8 items-start">
+                    <div class="bg-white/85 rounded-2xl border border-white shadow-lg p-7 lg:p-8">
+                        <div class="flex flex-wrap gap-2 mb-6" id="readiness-era-buttons">
+                            <button onclick="setReadinessEra('1980')" id="readiness-btn-1980" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors">שנות ה-80</button>
+                            <button onclick="setReadinessEra('2000')" id="readiness-btn-2000" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors">שנות ה-2000</button>
+                            <button onclick="setReadinessEra('2015')" id="readiness-btn-2015" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors">העשור האחרון</button>
+                            <button onclick="setReadinessEra('2026')" id="readiness-btn-2026" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors">היום</button>
+                            <button onclick="setReadinessEra('future')" id="readiness-btn-future" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors">השלב הבא</button>
+                        </div>
+
+                        <h3 id="readiness-title" class="text-2xl font-bold text-gray-900 mb-3"></h3>
+                        <p id="readiness-summary" class="text-gray-700 leading-8 text-lg"></p>
+
+                        <div class="mt-7 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-amber-50 rounded-2xl p-4 border border-amber-100">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span id="readiness-abundance-label" class="text-sm font-bold text-gray-700">שפע ויציבות</span>
+                                    <span id="readiness-abundance-value" class="text-sm font-bold text-amber-700"></span>
+                                </div>
+                                <div class="h-2.5 bg-white rounded-full overflow-hidden">
+                                    <div id="readiness-abundance-bar" class="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-rose-50 rounded-2xl p-4 border border-rose-100">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span id="readiness-exposure-label" class="text-sm font-bold text-gray-700">חשיפת השקר</span>
+                                    <span id="readiness-exposure-value" class="text-sm font-bold text-rose-700"></span>
+                                </div>
+                                <div class="h-2.5 bg-white rounded-full overflow-hidden">
+                                    <div id="readiness-exposure-bar" class="h-full rounded-full bg-gradient-to-r from-rose-400 to-rose-600"></div>
+                                </div>
+                            </div>
+
+                            <div class="bg-blue-50 rounded-2xl p-4 border border-blue-100">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span id="readiness-knowledge-label" class="text-sm font-bold text-gray-700">מרחב לדעת</span>
+                                    <span id="readiness-knowledge-value" class="text-sm font-bold text-blue-700"></span>
+                                </div>
+                                <div class="h-2.5 bg-white rounded-full overflow-hidden">
+                                    <div id="readiness-knowledge-bar" class="h-full rounded-full bg-gradient-to-r from-blue-400 to-blue-700"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 bg-gray-900 rounded-2xl p-5 text-white">
+                            <div class="flex items-center justify-between gap-4 mb-2">
+                                <span id="readiness-score-label" class="text-sm text-gray-300">מדד מוכנות הדור</span>
+                                <span id="readiness-score-value" class="text-2xl font-bold text-amber-300"></span>
+                            </div>
+                            <div class="h-3 bg-white/10 rounded-full overflow-hidden">
+                                <div id="readiness-score-bar" class="h-full rounded-full bg-gradient-to-r from-amber-400 via-yellow-300 to-blue-300"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="bg-gray-900 text-white rounded-2xl p-6 shadow-lg border border-gray-800">
+                            <div class="text-3xl mb-3">🕰️</div>
+                            <h3 id="readiness-card-1-title" class="text-xl font-bold mb-2">מבט רחב, לא כותרת רגעית</h3>
+                            <p id="readiness-card-1-desc" class="text-gray-300 text-sm leading-7">
+                                הרעיון כאן אינו להיסחף אחרי חדשות של שבוע אחד, אלא לראות קו ארוך: יותר גילוי, יותר יכולת, יותר כלים לחיים של משמעות.
+                            </p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-amber-100">
+                            <div class="text-3xl mb-3">📈</div>
+                            <h3 id="readiness-card-2-title" class="text-xl font-bold text-gray-900 mb-2">הכיוון משנה יותר מהרעש</h3>
+                            <p id="readiness-card-2-desc" class="text-gray-600 text-sm leading-7">
+                                גם כשיש זעזועים, המגמה הרחבה ברורה: העולם יודע לייצר יותר, לחשוף יותר, ולחפש יותר תכלית מאשר בדורות קודמים.
+                            </p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl p-6 shadow-md border border-blue-100">
+                            <div class="text-3xl mb-3">🎯</div>
+                            <h3 id="readiness-card-3-title" class="text-xl font-bold text-gray-900 mb-2">הנקודה הרוחנית</h3>
+                            <p id="readiness-card-3-desc" class="text-gray-600 text-sm leading-7">
+                                כפי שמודגש שוב ושוב בשיח חסידי עכשווי, לא מספיק שיהיה כוח בעולם. השאלה היא האם הכוח הזה נעשה כלי לטוב, לחסד ולדעת ה'.
+                            </p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-blue-600 to-amber-500 text-white rounded-2xl p-6 shadow-lg">
+                            <div class="text-3xl mb-3">✨</div>
+                            <h3 id="readiness-card-4-title" class="text-xl font-bold mb-2">לא צריך הרבה מילים</h3>
+                            <p id="readiness-card-4-desc" class="text-sm leading-7 text-white/90">
+                                ככל שעוברות השנים, האנושות פחות נעולה על הישרדות בלבד ויותר פנויה לשאול מהי תכלית החיים. זה עצם סימן ההכנה.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="technology" class="scroll-mt-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 brand-font">התשתית החומרית: רובוטים ו-UBI</h2>
+                <h2 id="technology-heading" class="text-3xl font-bold text-gray-900 brand-font">התשתית החומרית: רובוטים ו-UBI</h2>
                 <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                <p id="technology-description" class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
                     בחלק זה אנו בוחנים כיצד הטכנולוגיה משמשת ככלי להגשמת נבואות הרמב"ם.
                     בעולם בו רובוטים מבצעים את המלאכה הפיזית, נוצר "שפע בר קיימא" המאפשר הכנסה בסיסית אוניברסלית (UBI).
                     זהו הבסיס החומרי המאפשר את השחרור הרוחני.
@@ -197,7 +322,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
                     <div class="flex justify-between items-center mb-6">
-                        <h3 class="text-xl font-bold text-gray-800">הקצאת זמן אנושית: חול מול קודש</h3>
+                        <h3 id="technology-chart-title" class="text-xl font-bold text-gray-800">הקצאת זמן אנושית: חול מול קודש</h3>
                         <div class="flex bg-gray-100 p-1 rounded-lg">
                             <button onclick="updateChart('current')" id="btn-current" class="px-4 py-1 text-sm rounded-md bg-white shadow-sm text-gray-800 font-medium transition-all">היום</button>
                             <button onclick="updateChart('future')" id="btn-future" class="px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all">ימות המשיח</button>
@@ -219,9 +344,9 @@
                     <div class="group cursor-pointer p-6 bg-white hover:bg-amber-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
                         <div class="flex items-start">
                             <div class="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">🤖</div>
-                            <div class="mr-4">
-                                <h4 class="text-lg font-bold text-gray-900">רובוטיקה ואוטומציה</h4>
-                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                            <div class="ms-4">
+                                <h4 id="technology-card-1-title" class="text-lg font-bold text-gray-900">רובוטיקה ואוטומציה</h4>
+                                <p id="technology-card-1-desc" class="mt-2 text-gray-600 text-sm leading-relaxed">
                                     "ובאותו הזמן לא יהיה שם לא רעב ולא מלחמה..." (רמב"ם). הרובוטים מחליפים את הצורך במאבק על משאבים ומייצרים שפע חומרי זמין לכל.
                                 </p>
                             </div>
@@ -231,9 +356,9 @@
                     <div class="group cursor-pointer p-6 bg-white hover:bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
                         <div class="flex items-start">
                             <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">💰</div>
-                            <div class="mr-4">
-                                <h4 class="text-lg font-bold text-gray-900">הכנסה בסיסית אוניברסלית (UBI)</h4>
-                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                            <div class="ms-4">
+                                <h4 id="technology-card-2-title" class="text-lg font-bold text-gray-900">הכנסה בסיסית אוניברסלית (UBI)</h4>
+                                <p id="technology-card-2-desc" class="mt-2 text-gray-600 text-sm leading-relaxed">
                                     חלוקת השפע בצורה שוויונית המאפשרת לאדם להשתחרר מדאגת הפרנסה ("פת בסלו") ולהתפנות לעיקר: השגת החכמה.
                                 </p>
                             </div>
@@ -243,9 +368,9 @@
                     <div class="group cursor-pointer p-6 bg-white hover:bg-green-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
                         <div class="flex items-start">
                             <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">🌍</div>
-                            <div class="mr-4">
-                                <h4 class="text-lg font-bold text-gray-900">אומות העולם</h4>
-                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                            <div class="ms-4">
+                                <h4 id="technology-card-3-title" class="text-lg font-bold text-gray-900">אומות העולם</h4>
+                                <p id="technology-card-3-desc" class="mt-2 text-gray-600 text-sm leading-relaxed">
                                     השפע והתיקון אינם מוגבלים לישראל בלבד. כל העולם יתעלה, והרובוטים ישרתו את האנושות כולה כדי לאפשר דעת ה' אוניברסלית.
                                 </p>
                             </div>
@@ -261,31 +386,88 @@
                 <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-amber-600 rounded-full opacity-20 filter blur-3xl"></div>
 
                 <div class="relative z-10 text-center mb-10">
-                    <h2 class="text-3xl font-bold brand-font text-white">המטרה: ומלאה הארץ דעה</h2>
-                    <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
+                    <h2 id="spirituality-heading" class="text-3xl font-bold brand-font text-white">המטרה: ומלאה הארץ דעה</h2>
+                    <p id="spirituality-description" class="mt-4 text-gray-300 max-w-2xl mx-auto">
                         ע"פ תורת החסידות וחב"ד, השפע הגשמי הוא רק אמצעי.
                         התרשים להלן מציג את התפשטות ה"דעת" בעולם כפונקציה של פניות ורווחה.
                     </p>
+                    <div class="mt-6 flex flex-wrap justify-center gap-2" id="knowledge-era-buttons">
+                        <button onclick="setReadinessEra('1980')" id="knowledge-btn-1980" class="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors">שנות ה-80</button>
+                        <button onclick="setReadinessEra('2000')" id="knowledge-btn-2000" class="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors">2000</button>
+                        <button onclick="setReadinessEra('2015')" id="knowledge-btn-2015" class="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors">2015</button>
+                        <button onclick="setReadinessEra('2026')" id="knowledge-btn-2026" class="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors">היום</button>
+                        <button onclick="setReadinessEra('future')" id="knowledge-btn-future" class="px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors">השלב הבא</button>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 h-96 w-full flex items-center justify-center">
-                        <div id="knowledgeHeatmap" class="w-full h-full"></div>
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 h-[28rem] w-full flex flex-col">
+                        <div id="knowledgeHeatmap" class="w-full flex-1"></div>
+                        <p id="knowledgeGraphCaption" class="mt-3 text-sm text-gray-300 text-center leading-7"></p>
                     </div>
 
                     <div class="flex flex-col justify-center space-y-6">
-                        <blockquote class="border-r-4 border-amber-500 pr-4 italic text-lg text-gray-200">
+                        <blockquote id="spirituality-quote" class="border-s-4 border-amber-500 ps-4 italic text-lg text-gray-200">
                             "ולא יהיה עסק כל העולם אלא לדעת את ה' בלבד... לפיכך יהיו ישראל חכמים גדולים ויודעים דברים הסתומים..."
-                            <footer class="mt-2 text-sm text-amber-400 font-bold not-italic">- רמב"ם, הלכות מלכים יב</footer>
+                            <footer id="spirituality-quote-source" class="mt-2 text-sm text-amber-400 font-bold not-italic">- רמב"ם, הלכות מלכים יב</footer>
                         </blockquote>
 
                         <div class="bg-blue-900/50 p-6 rounded-lg border border-blue-500/30">
-                            <h4 class="text-xl font-bold text-blue-300 mb-2">תפקיד החסידות</h4>
-                            <p class="text-gray-300 text-sm">
+                            <h4 id="spirituality-card-1-title" class="text-xl font-bold text-blue-300 mb-2">תפקיד החסידות</h4>
+                            <p id="spirituality-card-1-desc" class="text-gray-300 text-sm">
                                 תורת חב"ד (חכמה, בינה, דעת) מעניקה את הכלים האינטלקטואליים להשתמש בפנאי שייווצר.
                                 לא בטלה, אלא התבוננות מעמיקה באחדות ה'. הרובוט משחרר את הידיים, החסידות ממלאת את הראש והלב.
                             </p>
                         </div>
+
+                        <div class="bg-white/10 p-6 rounded-lg border border-white/20">
+                            <h4 id="spirituality-card-2-title" class="text-xl font-bold text-amber-300 mb-2">לא רק חזון, אלא מוכנות ממשית</h4>
+                            <p id="spirituality-card-2-desc" class="text-gray-300 text-sm leading-7">
+                                המקטע הקודם לא בא רק לעודד. הוא בא לומר שהעולם כבר מספק יותר סימנים של מוכנות לגאולה: פחות תלות בפחד, יותר שפע, ויותר אפשרות להפוך כוח חומרי לכלי של קדושה.
+                            </p>
+                            <button id="spirituality-card-2-button" onclick="scrollToSection('readiness')" class="mt-4 px-4 py-2 rounded-full bg-amber-400 text-gray-900 font-bold hover:bg-amber-300 transition-colors">
+                                לקרוא את תמונת הדור
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="action" class="scroll-mt-24">
+            <div class="bg-white rounded-3xl border border-slate-200 shadow-xl p-8 lg:p-12">
+                <div class="text-center mb-10">
+                    <span id="action-badge" class="inline-block bg-blue-100 text-blue-800 text-sm font-bold px-4 py-1.5 rounded-full">דעת שמבקשת מעשה</span>
+                    <h2 id="action-heading" class="text-3xl font-bold text-gray-900 brand-font mt-5">לא רק להבין את הטוב. להיות נחוצים לטוב.</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-blue-500 to-amber-500 mx-auto mt-4 rounded-full"></div>
+                    <p id="action-description" class="mt-5 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        השפע והדעת אינם סוף הסיפור. כשהאדם כבר לא שקוע רק בשאלה מה חסר לו, הוא יכול לעבור לשאלה עמוקה יותר: מה מצופה ממני, ולמי אני יכול להוסיף טוב היום.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="rounded-2xl border border-blue-100 bg-blue-50 p-6">
+                        <div class="text-3xl mb-3">🤲</div>
+                        <h3 id="action-card-1-title" class="text-xl font-bold text-gray-900 mb-2">משמעות לפני נוחות</h3>
+                        <p id="action-card-1-desc" class="text-sm text-gray-600 leading-7">
+                            במקום לשאול רק איך אני ארגיש טוב, השאלה שמרימה חיים היא למי אני נחוץ עכשיו. שליחות יוצרת בהירות, והבהירות מביאה שמחה אמיתית.
+                        </p>
+                    </div>
+
+                    <div class="rounded-2xl border border-amber-100 bg-amber-50 p-6">
+                        <div class="text-3xl mb-3">🏠</div>
+                        <h3 id="action-card-2-title" class="text-xl font-bold text-gray-900 mb-2">טוב מתחיל בבית</h3>
+                        <p id="action-card-2-desc" class="text-sm text-gray-600 leading-7">
+                            זוגיות, הורות וחברות נבנות לא רק מצרכים אלא מנתינה, כבוד ונוכחות. העולם הבא נבנה דרך חסד קבוע בדברים הקטנים.
+                        </p>
+                    </div>
+
+                    <div class="rounded-2xl border border-emerald-100 bg-emerald-50 p-6">
+                        <div class="text-3xl mb-3">🛠️</div>
+                        <h3 id="action-card-3-title" class="text-xl font-bold text-gray-900 mb-2">כשיש קושי, עוברים לפעולה</h3>
+                        <p id="action-card-3-desc" class="text-sm text-gray-600 leading-7">
+                            במקום להיתקע בשאלה למה זה קרה, אפשר לעבור לשאלה מה אני עושה עם זה עכשיו. גאולה נכנסת לעולם דרך תגובה טובה, לא רק דרך רעיון נכון.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -293,10 +475,10 @@
 
         <section id="ai-insights" class="scroll-mt-24">
             <div class="text-center mb-12">
-                <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full mb-4 inline-block">מופעל על ידי Gemini LLM</span>
-                <h2 class="text-3xl font-bold text-gray-900 brand-font">סימולטור הגאולה האישי</h2>
+                <span id="ai-badge" class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full mb-4 inline-block">מופעל על ידי Gemini LLM</span>
+                <h2 id="ai-heading" class="text-3xl font-bold text-gray-900 brand-font">סימולטור הגאולה האישי</h2>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                <p id="ai-description" class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
                     השתמשו בבינה מלאכותית כדי לראות את עצמכם בחזון העתידי.
                 </p>
             </div>
@@ -304,16 +486,16 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden flex flex-col">
                     <div class="bg-blue-600 p-6 text-white">
-                        <h3 class="text-2xl font-bold flex items-center gap-2">
+                        <h3 id="ai-card-1-title" class="text-2xl font-bold flex items-center gap-2">
                             <span>🚀</span> האני העתידי שלי
                         </h3>
-                        <p class="text-blue-100 text-sm mt-1">איך ייראה יום בחייכם כשהרובוטים יעבדו?</p>
+                        <p id="ai-card-1-subtitle" class="text-blue-100 text-sm mt-1">איך ייראה יום בחייכם כשהרובוטים יעבדו?</p>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">מהו העיסוק הנוכחי שלך?</label>
+                        <label id="ai-card-1-label" class="block text-sm font-medium text-gray-700 mb-2">מהו העיסוק הנוכחי שלך?</label>
                         <input type="text" id="userProfession" placeholder="לדוגמה: רואה חשבון, מורה, נגר..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4 transition-colors" onkeypress="if(event.key === 'Enter') generateFutureRoutine()">
                         <button onclick="generateFutureRoutine()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all shadow-md hover:shadow-lg flex justify-center items-center gap-2">
-                            <span>צור סדר יום גאולתי</span>
+                            <span id="ai-card-1-button">צור סדר יום גאולתי</span>
                             <span class="text-amber-300">✨</span>
                         </button>
 
@@ -326,16 +508,16 @@
 
                 <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden flex flex-col">
                     <div class="bg-gray-800 p-6 text-white">
-                        <h3 class="text-2xl font-bold flex items-center gap-2">
+                        <h3 id="ai-card-2-title" class="text-2xl font-bold flex items-center gap-2">
                             <span>📜</span> שאל את החכם
                         </h3>
-                        <p class="text-gray-300 text-sm mt-1">חיבור בין טכנולוגיה, רמב"ם וחסידות</p>
+                        <p id="ai-card-2-subtitle" class="text-gray-300 text-sm mt-1">חיבור בין טכנולוגיה, רמב"ם וחסידות</p>
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
-                        <label class="block text-sm font-medium text-gray-700 mb-2">מה תרצה לדעת על העתיד?</label>
+                        <label id="ai-card-2-label" class="block text-sm font-medium text-gray-700 mb-2">מה תרצה לדעת על העתיד?</label>
                         <input type="text" id="userQuestion" placeholder="לדוגמה: איך AI מסתדר עם שבת?" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 mb-4 transition-colors" onkeypress="if(event.key === 'Enter') askTheSage()">
                         <button onclick="askTheSage()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg transition-all shadow-md hover:shadow-lg flex justify-center items-center gap-2">
-                            <span>שאל את האורקל</span>
+                            <span id="ai-card-2-button">שאל את האורקל</span>
                             <span class="text-amber-300">✨</span>
                         </button>
 
@@ -350,9 +532,9 @@
 
         <section id="research" class="scroll-mt-24">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-900 brand-font">עריכת תוכנית המחקר</h2>
+                <h2 id="research-heading" class="text-3xl font-bold text-gray-900 brand-font">עריכת תוכנית המחקר</h2>
                 <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
-                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                <p id="research-description" class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
                     מפת הדרכים המחקרית לביסוס המודל של "שפע בר קיימא" על פי מקורות היהדות והחזון הטכנולוגי.
                 </p>
             </div>
@@ -363,21 +545,21 @@
                 <div class="mb-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12 hidden md:block"></div>
                     <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">1</div>
-                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-r-4 border-blue-600">
-                        <h3 class="mb-2 font-bold text-gray-800 text-xl">שלב א': איסוף מקורות</h3>
-                        <p class="text-sm text-gray-600">
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-s-4 border-blue-600">
+                        <h3 id="research-step-1-title" class="mb-2 font-bold text-gray-800 text-xl">שלב א': איסוף מקורות</h3>
+                        <p id="research-step-1-desc" class="text-sm text-gray-600">
                             ליקוט מקורות מהרמב"ם (הלכות מלכים), מאמרי חסידות חב"ד העוסקים ב"דירה בתחתונים", ומקורות על אומות העולם לעתיד לבוא.
                         </p>
-                        <span class="inline-block mt-2 text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">הושלם חלקית</span>
+                        <span id="research-step-1-status" class="inline-block mt-2 text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">הושלם חלקית</span>
                     </div>
                 </div>
 
                 <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12 hidden md:block"></div>
                     <div class="z-20 flex items-center order-1 bg-amber-500 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">2</div>
-                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-l-4 border-amber-500 text-right md:text-left">
-                        <h3 class="mb-2 font-bold text-gray-800 text-xl text-right">שלב ב': אינטגרציה טכנולוגית</h3>
-                        <p class="text-sm text-gray-600 text-right">
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-s-4 border-amber-500 text-start">
+                        <h3 id="research-step-2-title" class="mb-2 font-bold text-gray-800 text-xl text-start">שלב ב': אינטגרציה טכנולוגית</h3>
+                        <p id="research-step-2-desc" class="text-sm text-gray-600 text-start">
                             ניתוח מודלים של UBI ורובוטיקה. השוואה בין "חברת הפנאי" המערבית לבין "חברת הדעת" החסידית. הגדרת ההבדל בין בטלה ליצירה רוחנית.
                         </p>
                     </div>
@@ -386,9 +568,9 @@
                 <div class="mb-8 flex justify-between items-center w-full right-timeline">
                     <div class="order-1 w-5/12 hidden md:block"></div>
                     <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">3</div>
-                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-r-4 border-gray-800">
-                        <h3 class="mb-2 font-bold text-gray-800 text-xl">שלב ג': סינתזה ופרסום</h3>
-                        <p class="text-sm text-gray-600">
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-s-4 border-gray-800">
+                        <h3 id="research-step-3-title" class="mb-2 font-bold text-gray-800 text-xl">שלב ג': סינתזה ופרסום</h3>
+                        <p id="research-step-3-desc" class="text-sm text-gray-600">
                             כתיבת המסמך המלא: "שפע בר קיימא - לפי הרובוטים ותורת החסידות". עריכת התוכנית להפצה בקרב קהלים דתיים וטכנולוגיים כאחד.
                         </p>
                     </div>
@@ -397,9 +579,9 @@
                 <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                     <div class="order-1 w-5/12 hidden md:block"></div>
                     <div class="z-20 flex items-center order-1 bg-green-500 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">4</div>
-                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-l-4 border-green-500 text-right md:text-left">
-                        <h3 class="mb-2 font-bold text-gray-800 text-xl text-right">שלב ד': יישום גלובלי</h3>
-                        <p class="text-sm text-gray-600 text-right">
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-s-4 border-green-500 text-start">
+                        <h3 id="research-step-4-title" class="mb-2 font-bold text-gray-800 text-xl text-start">שלב ד': יישום גלובלי</h3>
+                        <p id="research-step-4-desc" class="text-sm text-gray-600 text-start">
                             פיתוח מודלים חינוכיים לאומות העולם ("שבע מצוות בני נח" בהקשר של שפע ומוסר), ושימוש ב-AI להפצת הדעת.
                         </p>
                     </div>
@@ -410,15 +592,405 @@
 
     <footer class="bg-gray-800 text-white py-8">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-400">© 2024 שפע בר קיימא | מבוסס על משנת הרמב"ם ותורת החסידות</p>
-            <p class="text-gray-600 text-sm mt-2">פותח למטרות לימוד והשראה</p>
+            <p id="footer-line-1" class="text-gray-400">© 2024 שפע בר קיימא | מבוסס על משנת הרמב"ם ותורת החסידות</p>
+            <p id="footer-line-2" class="text-gray-600 text-sm mt-2">פותח למטרות לימוד והשראה</p>
         </div>
     </footer>
 
     <script>
         const state = {
             currentMode: 'current',
-            chartInstance: null
+            chartInstance: null,
+            readinessEra: '2026',
+            language: 'he'
+        };
+
+        const translations = {
+            he: {
+                pageTitle: 'שפע בר קיימא: רמב"ם, חסידות והעתיד הטכנולוגי',
+                dir: 'rtl',
+                text: {
+                    'brand-title': 'שפע בר קיימא',
+                    'nav-vision': 'החזון',
+                    'nav-readiness': 'הדור מוכן',
+                    'nav-technology': 'טכנולוגיה',
+                    'nav-spirituality': 'חסידות',
+                    'nav-action': 'עשייה לטוב',
+                    'nav-ai': 'AI וגאולה ✨',
+                    'nav-research': 'מחקר',
+                    'mobile-nav-vision': 'החזון',
+                    'mobile-nav-readiness': 'הדור מוכן',
+                    'mobile-nav-technology': 'טכנולוגיה',
+                    'mobile-nav-spirituality': 'חסידות',
+                    'mobile-nav-action': 'עשייה לטוב',
+                    'mobile-nav-ai': 'AI וגאולה ✨',
+                    'mobile-nav-research': 'מחקר',
+                    'hero-title-top': 'עידן השפע והדעת',
+                    'hero-title-bottom': 'רמב"ם, רובוטיקה וחסידות',
+                    'hero-description': 'סינתזה ייחודית בין חזון אחרית הימים של הרמב"ם, המהפכה הטכנולוגית (AI ורובוטים), ומודל ה-UBI. העולם מתעלה למצב בו העיסוק היחיד הוא "לדעת את ה\'".',
+                    'hero-btn-model': 'לחקור את המודל',
+                    'hero-btn-readiness': 'לראות למה העולם מוכן לגאולה',
+                    'hero-btn-ai-text': 'סימולטור גאולה',
+                    'readiness-badge': 'קריאת המציאות של הדור שלנו',
+                    'readiness-heading': 'העולם מוכן לגאולה',
+                    'readiness-intro': 'במקום להעמיס טקסט, אפשר להסתכל על המגמה הרחבה של עשרות שנים: פחות עולם של הישרדות עיוורת, ויותר עולם שמסוגל להכיל שפע, חשיפת שקר, חיפוש אחר משמעות ובעיקר מוכנות לגאולה.',
+                    'readiness-abundance-label': 'שפע ויציבות',
+                    'readiness-exposure-label': 'חשיפת השקר',
+                    'readiness-knowledge-label': 'מרחב לדעת',
+                    'readiness-score-label': 'מדד מוכנות הדור',
+                    'readiness-card-1-title': 'מבט רחב, לא כותרת רגעית',
+                    'readiness-card-1-desc': 'הרעיון כאן אינו להיסחף אחרי חדשות של שבוע אחד, אלא לראות קו ארוך: יותר גילוי, יותר יכולת, יותר כלים לחיים של משמעות.',
+                    'readiness-card-2-title': 'הכיוון משנה יותר מהרעש',
+                    'readiness-card-2-desc': 'גם כשיש זעזועים, המגמה הרחבה ברורה: העולם יודע לייצר יותר, לחשוף יותר, ולחפש יותר תכלית מאשר בדורות קודמים.',
+                    'readiness-card-3-title': 'הנקודה הרוחנית',
+                    'readiness-card-3-desc': 'לא מספיק שיהיה כוח בעולם. השאלה היא האם הכוח הזה נעשה כלי לטוב, לחסד ולדעת ה\'.',
+                    'readiness-card-4-title': 'לא צריך הרבה מילים',
+                    'readiness-card-4-desc': 'ככל שעוברות השנים, האנושות פחות נעולה על הישרדות בלבד ויותר פנויה לשאול מהי תכלית החיים. זה עצם סימן ההכנה.',
+                    'technology-heading': 'התשתית החומרית: רובוטים ו-UBI',
+                    'technology-description': 'בחלק זה אנו בוחנים כיצד הטכנולוגיה משמשת ככלי להגשמת נבואות הרמב"ם. בעולם בו רובוטים מבצעים את המלאכה הפיזית, נוצר "שפע בר קיימא" המאפשר הכנסה בסיסית אוניברסלית (UBI). זהו הבסיס החומרי המאפשר את השחרור הרוחני.',
+                    'technology-chart-title': 'הקצאת זמן אנושית: חול מול קודש',
+                    'btn-current': 'היום',
+                    'btn-future': 'ימות המשיח',
+                    'technology-card-1-title': 'רובוטיקה ואוטומציה',
+                    'technology-card-1-desc': '"ובאותו הזמן לא יהיה שם לא רעב ולא מלחמה..." (רמב"ם). הרובוטים מחליפים את הצורך במאבק על משאבים ומייצרים שפע חומרי זמין לכל.',
+                    'technology-card-2-title': 'הכנסה בסיסית אוניברסלית (UBI)',
+                    'technology-card-2-desc': 'חלוקת השפע בצורה שוויונית המאפשרת לאדם להשתחרר מדאגת הפרנסה ("פת בסלו") ולהתפנות לעיקר: השגת החכמה.',
+                    'technology-card-3-title': 'אומות העולם',
+                    'technology-card-3-desc': 'השפע והתיקון אינם מוגבלים לישראל בלבד. כל העולם יתעלה, והרובוטים ישרתו את האנושות כולה כדי לאפשר דעת ה\' אוניברסלית.',
+                    'spirituality-heading': 'המטרה: ומלאה הארץ דעה',
+                    'spirituality-description': 'ע"פ תורת החסידות וחב"ד, השפע הגשמי הוא רק אמצעי. התרשים להלן מציג את התפשטות ה"דעת" בעולם כפונקציה של פניות ורווחה.',
+                    'spirituality-quote': '"ולא יהיה עסק כל העולם אלא לדעת את ה\' בלבד... לפיכך יהיו ישראל חכמים גדולים ויודעים דברים הסתומים..."',
+                    'spirituality-quote-source': '- רמב"ם, הלכות מלכים יב',
+                    'spirituality-card-1-title': 'תפקיד החסידות',
+                    'spirituality-card-1-desc': 'תורת חב"ד (חכמה, בינה, דעת) מעניקה את הכלים האינטלקטואליים להשתמש בפנאי שייווצר. לא בטלה, אלא התבוננות מעמיקה באחדות ה\'. הרובוט משחרר את הידיים, החסידות ממלאת את הראש והלב.',
+                    'spirituality-card-2-title': 'לא רק חזון, אלא מוכנות ממשית',
+                    'spirituality-card-2-desc': 'המקטע הקודם לא בא רק לעודד. הוא בא לומר שהעולם כבר מספק יותר סימנים של מוכנות לגאולה: פחות תלות בפחד, יותר שפע, ויותר אפשרות להפוך כוח חומרי לכלי של קדושה.',
+                    'spirituality-card-2-button': 'לקרוא את תמונת הדור',
+                    'action-badge': 'דעת שמבקשת מעשה',
+                    'action-heading': 'לא רק להבין את הטוב. להיות נחוצים לטוב.',
+                    'action-description': 'השפע והדעת אינם סוף הסיפור. כשהאדם כבר לא שקוע רק בשאלה מה חסר לו, הוא יכול לעבור לשאלה עמוקה יותר: מה מצופה ממני, ולמי אני יכול להוסיף טוב היום.',
+                    'action-card-1-title': 'משמעות לפני נוחות',
+                    'action-card-1-desc': 'במקום לשאול רק איך אני ארגיש טוב, השאלה שמרימה חיים היא למי אני נחוץ עכשיו. שליחות יוצרת בהירות, והבהירות מביאה שמחה אמיתית.',
+                    'action-card-2-title': 'טוב מתחיל בבית',
+                    'action-card-2-desc': 'זוגיות, הורות וחברות נבנות לא רק מצרכים אלא מנתינה, כבוד ונוכחות. העולם הבא נבנה דרך חסד קבוע בדברים הקטנים.',
+                    'action-card-3-title': 'כשיש קושי, עוברים לפעולה',
+                    'action-card-3-desc': 'במקום להיתקע בשאלה למה זה קרה, אפשר לעבור לשאלה מה אני עושה עם זה עכשיו. גאולה נכנסת לעולם דרך תגובה טובה, לא רק דרך רעיון נכון.',
+                    'ai-badge': 'מופעל על ידי Gemini LLM',
+                    'ai-heading': 'סימולטור הגאולה האישי',
+                    'ai-description': 'השתמשו בבינה מלאכותית כדי לראות את עצמכם בחזון העתידי.',
+                    'ai-card-1-title': '🚀 האני העתידי שלי',
+                    'ai-card-1-subtitle': 'איך ייראה יום בחייכם כשהרובוטים יעבדו?',
+                    'ai-card-1-label': 'מהו העיסוק הנוכחי שלך?',
+                    'ai-card-1-button': 'צור סדר יום גאולתי',
+                    'ai-card-2-title': '📜 שאל את החכם',
+                    'ai-card-2-subtitle': 'חיבור בין טכנולוגיה, רמב"ם וחסידות',
+                    'ai-card-2-label': 'מה תרצה לדעת על העתיד?',
+                    'ai-card-2-button': 'שאל את האורקל',
+                    'research-heading': 'עריכת תוכנית המחקר',
+                    'research-description': 'מפת הדרכים המחקרית לביסוס המודל של "שפע בר קיימא" על פי מקורות היהדות והחזון הטכנולוגי.',
+                    'research-step-1-title': 'שלב א\': איסוף מקורות',
+                    'research-step-1-desc': 'ליקוט מקורות מהרמב"ם (הלכות מלכים), מאמרי חסידות חב"ד העוסקים ב"דירה בתחתונים", ומקורות על אומות העולם לעתיד לבוא.',
+                    'research-step-1-status': 'הושלם חלקית',
+                    'research-step-2-title': 'שלב ב\': אינטגרציה טכנולוגית',
+                    'research-step-2-desc': 'ניתוח מודלים של UBI ורובוטיקה. השוואה בין "חברת הפנאי" המערבית לבין "חברת הדעת" החסידית. הגדרת ההבדל בין בטלה ליצירה רוחנית.',
+                    'research-step-3-title': 'שלב ג\': סינתזה ופרסום',
+                    'research-step-3-desc': 'כתיבת המסמך המלא: "שפע בר קיימא - לפי הרובוטים ותורת החסידות". עריכת התוכנית להפצה בקרב קהלים דתיים וטכנולוגיים כאחד.',
+                    'research-step-4-title': 'שלב ד\': יישום גלובלי',
+                    'research-step-4-desc': 'פיתוח מודלים חינוכיים לאומות העולם ("שבע מצוות בני נח" בהקשר של שפע ומוסר), ושימוש ב-AI להפצת הדעת.',
+                    'footer-line-1': '© 2024 שפע בר קיימא | מבוסס על משנת הרמב"ם ותורת החסידות',
+                    'footer-line-2': 'פותח למטרות לימוד והשראה'
+                },
+                placeholders: {
+                    userProfession: 'לדוגמה: רואה חשבון, מורה, נגר...',
+                    userQuestion: 'לדוגמה: איך AI מסתדר עם שבת?'
+                },
+                chart: {
+                    labels: ['עבודה / פרנסה', 'תחזוקה פיזית', 'פנאי ומשפחה', 'לימוד ודעת ה\''],
+                    currentLabel: 'חלוקת זמן נוכחית (שעות בשבוע)',
+                    futureLabel: 'ימות המשיח (שפע בר קיימא)',
+                    currentDesc: 'המצב כיום: רוב הזמן מושקע בהישרדות ופרנסה (עבודה פיזית ובירוקרטיה). הפנאי ללימוד רוחני מצומצם ביותר.',
+                    futureDesc: 'המצב העתידי: רובוטים ו-AI מבצעים את כל העבודה. UBI מספק ביטחון. 70% מהזמן מוקדש לידיעת ה\' וללימוד.',
+                    yAxisTitle: 'אחוז מהזמן הער',
+                    tooltipSuffix: '% מהזמן'
+                },
+                plot: {
+                    title: 'התפשטות הדעת בעולם',
+                    xAxis: 'מרחב אנושי',
+                    yAxis: 'חיבור גלובלי',
+                    zAxis: 'עומק הדעת'
+                },
+                readinessButtons: {
+                    '1980': 'שנות ה-80',
+                    '2000': 'שנות ה-2000',
+                    '2015': 'העשור האחרון',
+                    '2026': 'היום',
+                    'future': 'השלב הבא'
+                },
+                readinessEras: {
+                    '1980': {
+                        title: 'העולם עדיין עסוק בעיקר בהישרדות ובמאבקי כוח',
+                        summary: 'הטכנולוגיה מתקדמת, אבל רוב האנושות עדיין רחוקה משפע זמין, מגישה לידע ומתחושת כיוון רוחני עולמית.',
+                        graphCaption: 'הדעת מתחילה לנוע, אבל היא עדיין מרוכזת במוקדים מצומצמים יחסית.'
+                    },
+                    '2000': {
+                        title: 'העולם מתחיל להתחבר, אבל עדיין נשלט בידי פחד ואי־יציבות',
+                        summary: 'רשתות, גלובליזציה וגישה למידע משנות את התמונה, אך המערכת העולמית עדיין מתנהלת סביב מחסור, טרור ודפוסי עבר.',
+                        graphCaption: 'נקודות דעת חדשות נפתחות, והעולם מתחיל להרגיש יותר כמו מערכת אחת.'
+                    },
+                    '2015': {
+                        title: 'האנושות מגלה שיש לה כוח, אבל גם שהיא חייבת כיוון',
+                        summary: 'ידע זורם מהר, הטכנולוגיה חוצה גבולות, ושאלות של משמעות, מוסר ותכלית נעשות בוערות הרבה יותר.',
+                        graphCaption: 'המודעות מתרחבת ומתחילה ליצור מרכז ברור יותר של משמעות.'
+                    },
+                    '2026': {
+                        title: 'הדור שלנו כבר רואה שהחושך לא מחזיק לנצח',
+                        summary: 'מוקדי רשע נחשפים, שפע וידע מתרחבים, והאנושות מבינה יותר מבעבר שלא נבראנו רק כדי לשרוד אלא כדי לכוון את העולם לטוב.',
+                        graphCaption: 'הדעת כבר לא רק מתפשטת, היא גם מתחילה להתכנס סביב פסגה בהירה וברורה יותר.'
+                    },
+                    'future': {
+                        title: 'כשהכוח החומרי יתייצב, רוב האנרגיה תוכל לעבור לדעת, חסד ותיקון',
+                        summary: 'זהו הכיוון שהרמב"ם והחסידות מצביעים עליו: פחות מלחמת קיום, יותר עומק, חכמה, משפחה, שליחות ואור.',
+                        graphCaption: 'הארץ מלאה דעת: המרחב כולו מואר, והמרכז כבר אינו נקודה קטנה אלא מציאות רחבה.'
+                    }
+                },
+                ai: {
+                    devMessage: 'מצב פיתוח: האתר לא מחובר לשרת Vercel. יש להעלות את הקוד ל-Vercel כדי שהפונקציה /api/gemini תעבוד.',
+                    busyMessage: 'מצטערים, המערכת נתקלה בשגיאה. אנא נסה שנית מאוחר יותר.',
+                    futureSystem: 'אתה עתידן יהודי מומחה לחב"ד ולרמב"ם. תאר ב-3 חלקים קצרים (בוקר, צהריים, ערב) איך ייראה סדר היום של אדם שבעבר היה {profession}, וכעת חי בעידן בו רובוטים עובדים וכולם חופשיים לעסוק בדעת ה\'. ענה בעברית, בקצרה, עד 100 מילים.',
+                    futurePrompt: 'המקצוע שלי היה {profession}. איך ייראה יומי בעידן השפע?',
+                    sageSystem: 'אתה חכם דיגיטלי המשלב את הרמב"ם, תורת החסידות, רובוטיקה, AI ו-UBI. ענה בעברית ב-3 עד 4 משפטים, בצורה חכמה ותמציתית, והסבר איך השפע הטכנולוגי משרת את היעד הרוחני.',
+                    sagePrompt: 'שאלה: {question}'
+                }
+            },
+            en: {
+                pageTitle: 'Sustainable Abundance: Rambam, Chassidus, and the Technological Future',
+                dir: 'ltr',
+                text: {
+                    'brand-title': 'Sustainable Abundance',
+                    'nav-vision': 'Vision',
+                    'nav-readiness': 'This Generation',
+                    'nav-technology': 'Technology',
+                    'nav-spirituality': 'Chassidus',
+                    'nav-action': 'Doing Good',
+                    'nav-ai': 'AI and Redemption ✨',
+                    'nav-research': 'Research',
+                    'mobile-nav-vision': 'Vision',
+                    'mobile-nav-readiness': 'This Generation',
+                    'mobile-nav-technology': 'Technology',
+                    'mobile-nav-spirituality': 'Chassidus',
+                    'mobile-nav-action': 'Doing Good',
+                    'mobile-nav-ai': 'AI and Redemption ✨',
+                    'mobile-nav-research': 'Research',
+                    'hero-title-top': 'An Era of Abundance and Awareness',
+                    'hero-title-bottom': 'Rambam, Robotics, and Chassidus',
+                    'hero-description': 'A unified vision connecting Maimonides\' messianic future, the technological revolution of AI and robotics, and a world where human energy can move from survival toward knowing God.',
+                    'hero-btn-model': 'Explore the Model',
+                    'hero-btn-readiness': 'See Why the World Is Ready for Redemption',
+                    'hero-btn-ai-text': 'Redemption Simulator',
+                    'readiness-badge': 'Reading the Spirit of the Age',
+                    'readiness-heading': 'The World Is Ready for Redemption',
+                    'readiness-intro': 'Instead of adding more paragraphs, it is better to look at the long arc of recent decades: less blind survival, and more capacity for abundance, truth, meaning, and genuine readiness for redemption.',
+                    'readiness-abundance-label': 'Abundance and Stability',
+                    'readiness-exposure-label': 'Falsehood Exposed',
+                    'readiness-knowledge-label': 'Room for Awareness',
+                    'readiness-score-label': 'Generation Readiness Index',
+                    'readiness-card-1-title': 'Take the Long View',
+                    'readiness-card-1-desc': 'The point is not to get carried away by one week of headlines, but to notice the larger direction: more exposure, more ability, and more tools for a meaningful life.',
+                    'readiness-card-2-title': 'Direction Matters More Than Noise',
+                    'readiness-card-2-desc': 'Even with setbacks, the broader trend is clear: the world can produce more, expose more, and search for deeper purpose than in earlier generations.',
+                    'readiness-card-3-title': 'The Spiritual Question',
+                    'readiness-card-3-desc': 'It is not enough for the world to have power. The deeper question is whether that power becomes a vessel for goodness, responsibility, and awareness of God.',
+                    'readiness-card-4-title': 'This Does Not Need Many Words',
+                    'readiness-card-4-desc': 'As the years move forward, humanity is less locked into survival alone and more ready to ask what life is actually for. That itself is a sign of preparation.',
+                    'technology-heading': 'The Material Foundation: Robots and UBI',
+                    'technology-description': 'This section explores how technology can serve as the material platform for the Rambam\'s vision. When robots handle physical labor, sustainable abundance and universal basic income create the conditions for spiritual freedom.',
+                    'technology-chart-title': 'Human Time Allocation: Survival and Sanctity',
+                    'btn-current': 'Today',
+                    'btn-future': 'Messianic Era',
+                    'technology-card-1-title': 'Robotics and Automation',
+                    'technology-card-1-desc': '"In that time there will be no famine and no war..." Robots reduce the struggle over resources and make material abundance broadly available.',
+                    'technology-card-2-title': 'Universal Basic Income',
+                    'technology-card-2-desc': 'Abundance can be shared in a way that frees people from constant anxiety over livelihood and gives them room to pursue wisdom.',
+                    'technology-card-3-title': 'The Nations of the World',
+                    'technology-card-3-desc': 'This transformation is not limited to one people. The whole world can be elevated when material power serves universal moral and spiritual growth.',
+                    'spirituality-heading': 'The Goal: The Earth Filled with Awareness',
+                    'spirituality-description': 'According to Chassidus, material abundance is not the goal but the opening. The visualization below presents the spread of divine awareness as people gain more space, security, and purpose.',
+                    'spirituality-quote': '"The occupation of the entire world will be solely to know God... therefore Israel will be great sages and know hidden matters..."',
+                    'spirituality-quote-source': '- Rambam, Laws of Kings 12',
+                    'spirituality-card-1-title': 'What Chassidus Adds',
+                    'spirituality-card-1-desc': 'Chabad offers the intellectual tools to use freedom well. The point is not emptiness or leisure for its own sake, but sustained contemplation, depth, and inner alignment.',
+                    'spirituality-card-2-title': 'Not Only a Vision, but Real Readiness',
+                    'spirituality-card-2-desc': 'The earlier section is not there just to inspire. It argues that the world already shows stronger signs of readiness for redemption: less dependence on fear, more abundance, and more room to turn material power into holiness.',
+                    'spirituality-card-2-button': 'Read the Generational Picture',
+                    'action-badge': 'Awareness That Demands Action',
+                    'action-heading': 'Do Not Only Understand the Good. Become Needed for the Good.',
+                    'action-description': 'Abundance and awareness are not the end of the story. Once a person is no longer trapped only in what is missing, a deeper question appears: what is being asked of me, and where can I add goodness today?',
+                    'action-card-1-title': 'Meaning Before Comfort',
+                    'action-card-1-desc': 'Instead of asking only how to feel good, ask who needs you now. A sense of mission creates clarity, and clarity brings real joy.',
+                    'action-card-2-title': 'Goodness Starts at Home',
+                    'action-card-2-desc': 'Marriage, parenting, and friendship are not built only out of needs, but out of giving, respect, and presence. The future world is built through steady acts of care.',
+                    'action-card-3-title': 'When There Is Difficulty, Move to Action',
+                    'action-card-3-desc': 'Instead of getting stuck on why this happened, move to what you can do with it now. Redemption enters the world through a good response, not only through a correct idea.',
+                    'ai-badge': 'Powered by Gemini LLM',
+                    'ai-heading': 'Your Personal Redemption Simulator',
+                    'ai-description': 'Use AI to imagine yourself inside the future vision.',
+                    'ai-card-1-title': '🚀 My Future Self',
+                    'ai-card-1-subtitle': 'What could your day look like when robots do the work?',
+                    'ai-card-1-label': 'What is your current profession?',
+                    'ai-card-1-button': 'Generate a Redemptive Daily Routine',
+                    'ai-card-2-title': '📜 Ask the Sage',
+                    'ai-card-2-subtitle': 'A bridge between technology, Rambam, and Chassidus',
+                    'ai-card-2-label': 'What would you like to ask about the future?',
+                    'ai-card-2-button': 'Ask the Oracle',
+                    'research-heading': 'Research Roadmap',
+                    'research-description': 'A research roadmap for grounding the model of sustainable abundance in Jewish sources and technological reality.',
+                    'research-step-1-title': 'Stage 1: Gather Sources',
+                    'research-step-1-desc': 'Collect sources from Rambam, Chabad Chassidus, and teachings about the nations of the world in the future era.',
+                    'research-step-1-status': 'Partially Complete',
+                    'research-step-2-title': 'Stage 2: Integrate Technology',
+                    'research-step-2-desc': 'Analyze UBI and robotics models, and define the difference between idle leisure and spiritually meaningful freedom.',
+                    'research-step-3-title': 'Stage 3: Synthesis and Publication',
+                    'research-step-3-desc': 'Write the full document and shape it for both religious and technological audiences.',
+                    'research-step-4-title': 'Stage 4: Global Application',
+                    'research-step-4-desc': 'Develop educational models and use AI to spread awareness and moral responsibility more broadly.',
+                    'footer-line-1': '© 2024 Sustainable Abundance | Based on Rambam and Chassidic thought',
+                    'footer-line-2': 'Built for learning and inspiration'
+                },
+                placeholders: {
+                    userProfession: 'For example: teacher, accountant, designer...',
+                    userQuestion: 'For example: How can AI support a meaningful life?'
+                },
+                chart: {
+                    labels: ['Work / Income', 'Physical Maintenance', 'Family and Rest', 'Study and Awareness'],
+                    currentLabel: 'Current Time Allocation',
+                    futureLabel: 'Messianic Era (Sustainable Abundance)',
+                    currentDesc: 'Today, most time is spent on survival and livelihood. Space for spiritual learning remains limited.',
+                    futureDesc: 'In the future state, robots and AI handle the labor, basic stability is secured, and most time can move toward awareness and learning.',
+                    yAxisTitle: 'Percent of waking time',
+                    tooltipSuffix: '% of time'
+                },
+                plot: {
+                    title: 'The Spread of Awareness in the World',
+                    xAxis: 'Human Space',
+                    yAxis: 'Global Connection',
+                    zAxis: 'Depth of Awareness'
+                },
+                readinessButtons: {
+                    '1980': '1980s',
+                    '2000': '2000s',
+                    '2015': 'Last Decade',
+                    '2026': 'Today',
+                    'future': 'Next Stage'
+                },
+                readinessEras: {
+                    '1980': {
+                        title: 'The world is still focused mainly on survival and power struggles',
+                        summary: 'Technology is advancing, but much of humanity is still far from stable abundance, broad access to knowledge, and a shared spiritual direction.',
+                        graphCaption: 'Awareness begins to move, but remains concentrated in relatively narrow pockets.'
+                    },
+                    '2000': {
+                        title: 'The world starts to connect, but is still ruled by fear and instability',
+                        summary: 'Networks, globalization, and access to information reshape reality, but the system is still driven by scarcity, terror, and inherited patterns.',
+                        graphCaption: 'New points of awareness appear, and the world starts to feel more like one connected system.'
+                    },
+                    '2015': {
+                        title: 'Humanity discovers it has power, but also that it needs direction',
+                        summary: 'Knowledge moves quickly, technology crosses borders, and questions of meaning, morality, and purpose become much more urgent.',
+                        graphCaption: 'Awareness expands and begins to form a clearer center of meaning.'
+                    },
+                    '2026': {
+                        title: 'Our generation can already see that darkness does not hold forever',
+                        summary: 'Destructive powers are exposed, abundance and knowledge expand, and humanity understands more clearly that life is not only about surviving but about directing the world toward goodness.',
+                        graphCaption: 'Awareness is not only spreading. It is beginning to gather around a brighter and more recognizable peak.'
+                    },
+                    'future': {
+                        title: 'Once material power stabilizes, most human energy can move toward awareness, kindness, and repair',
+                        summary: 'This is the direction highlighted by Rambam and Chassidus: less struggle for existence, more depth, wisdom, family, mission, and light.',
+                        graphCaption: 'The earth is filled with awareness: the whole field becomes illuminated, and the center is no longer a narrow point but a wide reality.'
+                    }
+                },
+                ai: {
+                    devMessage: 'Development mode: this site is not connected to the Vercel backend. Deploy it to Vercel for the /api/gemini function to work.',
+                    busyMessage: 'Sorry, the system ran into a problem. Please try again later.',
+                    futureSystem: 'You are a Jewish futurist with expertise in Rambam and Chassidus. Describe in 3 short parts (morning, afternoon, evening) what a daily routine looks like for someone who used to work as {profession}, and now lives in an era where robots do the labor and people are free to pursue awareness of God. Answer in concise English, up to 100 words.',
+                    futurePrompt: 'My profession used to be {profession}. What might my day look like in an era of abundance?',
+                    sageSystem: 'You are a wise guide combining Maimonides, Chassidic thought, robotics, AI, and UBI. Answer in English in 3 to 4 concise sentences, and explain how material abundance can serve a spiritual purpose.',
+                    sagePrompt: 'Question: {question}'
+                }
+            }
+        };
+
+        const readinessData = {
+            '1980': {
+                label: 'שנות ה-80',
+                shortLabel: '80s',
+                title: 'העולם עדיין עסוק בעיקר בהישרדות ובמאבקי כוח',
+                summary: 'הטכנולוגיה מתקדמת, אבל רוב האנושות עדיין רחוקה משפע זמין, מגישה לידע ומתחושת כיוון רוחני עולמית.',
+                readiness: 28,
+                abundance: 32,
+                exposure: 22,
+                knowledge: 18,
+                graphLevel: 3,
+                graphSpread: 0.85,
+                graphPoints: 8,
+                graphCaption: 'הדעת מתחילה לנוע, אבל היא עדיין מרוכזת במוקדים מצומצמים יחסית.'
+            },
+            '2000': {
+                label: 'שנות ה-2000',
+                shortLabel: '2000',
+                title: 'העולם מתחיל להתחבר, אבל עדיין נשלט בידי פחד ואי־יציבות',
+                summary: 'רשתות, גלובליזציה וגישה למידע משנות את התמונה, אך המערכת העולמית עדיין מתנהלת סביב מחסור, טרור ודפוסי עבר.',
+                readiness: 44,
+                abundance: 46,
+                exposure: 40,
+                knowledge: 34,
+                graphLevel: 6,
+                graphSpread: 1,
+                graphPoints: 12,
+                graphCaption: 'נקודות דעת חדשות נפתחות, והעולם מתחיל להרגיש יותר כמו מערכת אחת.'
+            },
+            '2015': {
+                label: 'העשור האחרון',
+                shortLabel: '2015',
+                title: 'האנושות מגלה שיש לה כוח, אבל גם שהיא חייבת כיוון',
+                summary: 'ידע זורם מהר, הטכנולוגיה חוצה גבולות, ושאלות של משמעות, מוסר ותכלית נעשות בוערות הרבה יותר.',
+                readiness: 61,
+                abundance: 58,
+                exposure: 63,
+                knowledge: 52,
+                graphLevel: 9,
+                graphSpread: 1.15,
+                graphPoints: 18,
+                graphCaption: 'המודעות מתרחבת ומתחילה ליצור מרכז ברור יותר של משמעות.'
+            },
+            '2026': {
+                label: 'היום',
+                shortLabel: '2026',
+                title: 'הדור שלנו כבר רואה שהחושך לא מחזיק לנצח',
+                summary: 'מוקדי רשע נחשפים, שפע וידע מתרחבים, והאנושות מבינה יותר מבעבר שלא נבראנו רק כדי לשרוד אלא כדי לכוון את העולם לטוב.',
+                readiness: 79,
+                abundance: 74,
+                exposure: 83,
+                knowledge: 71,
+                graphLevel: 14,
+                graphSpread: 1.35,
+                graphPoints: 26,
+                graphCaption: 'הדעת כבר לא רק מתפשטת, היא גם מתחילה להתכנס סביב פסגה בהירה וברורה יותר.'
+            },
+            'future': {
+                label: 'השלב הבא',
+                shortLabel: 'עתיד',
+                title: 'כשהכוח החומרי יתייצב, רוב האנרגיה תוכל לעבור לדעת, חסד ותיקון',
+                summary: 'זהו הכיוון שהרמב"ם והחסידות מצביעים עליו: פחות מלחמת קיום, יותר עומק, חכמה, משפחה, שליחות ואור.',
+                readiness: 96,
+                abundance: 95,
+                exposure: 92,
+                knowledge: 97,
+                graphLevel: 20,
+                graphSpread: 1.6,
+                graphPoints: 40,
+                graphCaption: 'הארץ מלאה דעת: המרחב כולו מואר, והמרכז כבר אינו נקודה קטנה אלא מציאות רחבה.'
+            }
         };
 
         const chartData = {
@@ -430,9 +1002,76 @@
             future: {
                 data: [0, 5, 25, 70],
                 label: 'ימות המשיח (שפע בר קיימא)',
-                desc: 'המצב העתידי: רובוטים ו-AI מבצעים את כל העבודה. UBI מספק ביטחון. 70% מהזמן מוקדש ל"לדעת את ה\'" ולימוד.'
+                desc: 'המצב העתידי: רובוטים ו-AI מבצעים את כל העבודה. UBI מספק ביטחון. 70% מהזמן מוקדש לידיעת ה\' וללימוד.'
             }
         };
+
+        function t(path) {
+            return path.split('.').reduce((value, key) => value && value[key], translations[state.language]);
+        }
+
+        function replaceTemplate(template, values) {
+            return template.replace(/\{(.*?)\}/g, (_, key) => values[key] ?? '');
+        }
+
+        function setText(id, text) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.textContent = text;
+            }
+        }
+
+        function applyStaticTranslations() {
+            const staticText = t('text');
+            Object.keys(staticText).forEach((id) => {
+                setText(id, staticText[id]);
+            });
+
+            const placeholders = t('placeholders');
+            document.getElementById('userProfession').placeholder = placeholders.userProfession;
+            document.getElementById('userQuestion').placeholder = placeholders.userQuestion;
+
+            document.title = t('pageTitle');
+            document.documentElement.lang = state.language;
+            document.documentElement.dir = t('dir');
+
+            const activeClass = 'px-3 py-1.5 rounded-full text-xs font-bold bg-blue-600 text-white';
+            const inactiveClass = 'px-3 py-1.5 rounded-full text-xs font-bold text-gray-600';
+            const mobileActiveClass = 'px-3 py-1.5 rounded-full text-xs font-bold bg-blue-600 text-white';
+            const mobileInactiveClass = 'px-3 py-1.5 rounded-full text-xs font-bold bg-gray-100 text-gray-700';
+
+            document.getElementById('lang-btn-he').className = state.language === 'he' ? activeClass : inactiveClass;
+            document.getElementById('lang-btn-en').className = state.language === 'en' ? activeClass : inactiveClass;
+            document.getElementById('mobile-lang-he').className = state.language === 'he' ? mobileActiveClass : mobileInactiveClass;
+            document.getElementById('mobile-lang-en').className = state.language === 'en' ? mobileActiveClass : mobileInactiveClass;
+        }
+
+        function refreshChartLanguage() {
+            if (!state.chartInstance) {
+                return;
+            }
+
+            const chartCopy = t('chart');
+            state.chartInstance.data.labels = chartCopy.labels;
+            state.chartInstance.data.datasets[0].label = state.currentMode === 'current' ? chartCopy.currentLabel : chartCopy.futureLabel;
+            state.chartInstance.options.scales.y.title.text = chartCopy.yAxisTitle;
+            state.chartInstance.options.plugins.tooltip.callbacks.label = function(context) {
+                return context.parsed.y + chartCopy.tooltipSuffix;
+            };
+            document.getElementById('chart-desc').innerText = state.currentMode === 'current' ? chartCopy.currentDesc : chartCopy.futureDesc;
+            state.chartInstance.update();
+        }
+
+        function setLanguage(lang) {
+            if (!translations[lang]) {
+                return;
+            }
+
+            state.language = lang;
+            applyStaticTranslations();
+            refreshChartLanguage();
+            setReadinessEra(state.readinessEra);
+        }
 
         async function callSecureBackend(userPrompt, systemInstructionText) {
             try {
@@ -455,9 +1094,9 @@
             } catch (error) {
                 console.error('Fetch Error:', error);
                 if (error.message.includes('Failed to fetch') || error.message.includes('Unexpected token')) {
-                    return 'מצב פיתוח: האתר לא מחובר לשרת Vercel. יש להעלות את הקוד ל-Vercel כדי שהפונקציה /api/gemini תעבוד.';
+                    return t('ai.devMessage');
                 }
-                return 'מצטערים, המערכת נתקלה בשגיאה. אנא נסה שנית מאוחר יותר.';
+                return t('ai.busyMessage');
             }
         }
 
@@ -476,8 +1115,8 @@
             outputDiv.classList.add('hidden');
             loader.classList.remove('hidden');
 
-            const systemInstruction = 'אתה עתידן יהודי מומחה לחב"ד ולרמב"ם. תאר ב-3 חלקים קצרים (בוקר, צהריים, ערב) איך ייראה סדר היום של אדם שבעבר היה ' + profession + ', וכעת חי בעידן בו רובוטים עובדים וכולם חופשיים לעסוק בדעת ה\'. ענה בעברית, בקצרה, עד 100 מילים.';
-            const prompt = 'המקצוע שלי היה ' + profession + '. איך ייראה יומי בעידן השפע?';
+            const systemInstruction = replaceTemplate(t('ai.futureSystem'), { profession });
+            const prompt = replaceTemplate(t('ai.futurePrompt'), { profession });
 
             const result = await callSecureBackend(prompt, systemInstruction);
             outputDiv.innerHTML = result.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
@@ -500,8 +1139,8 @@
             outputDiv.classList.add('hidden');
             loader.classList.remove('hidden');
 
-            const systemInstruction = 'אתה חכם דיגיטלי המשלב את הרמב"ם, תורת החסידות, רובוטיקה, AI ו-UBI. ענה בעברית ב-3 עד 4 משפטים, בצורה חכמה ותמציתית, והסבר איך השפע הטכנולוגי משרת את היעד הרוחני.';
-            const prompt = 'שאלה: ' + question;
+            const systemInstruction = t('ai.sageSystem');
+            const prompt = replaceTemplate(t('ai.sagePrompt'), { question });
 
             const result = await callSecureBackend(prompt, systemInstruction);
             outputDiv.innerHTML = result.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
@@ -511,13 +1150,14 @@
 
         function initChart() {
             const ctx = document.getElementById('timeAllocationChart').getContext('2d');
+            const chartCopy = t('chart');
 
             state.chartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['עבודה / פרנסה', 'תחזוקה פיזית', 'פנאי ומשפחה', 'לימוד ודעת ה\''],
+                    labels: chartCopy.labels,
                     datasets: [{
-                        label: chartData.current.label,
+                        label: chartCopy.currentLabel,
                         data: chartData.current.data,
                         backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#6366f1'],
                         borderWidth: 1,
@@ -533,7 +1173,7 @@
                             max: 100,
                             title: {
                                 display: true,
-                                text: 'אחוז מהזמן הער'
+                                text: chartCopy.yAxisTitle
                             }
                         }
                     },
@@ -542,7 +1182,7 @@
                         tooltip: {
                             callbacks: {
                                 label: function(context) {
-                                    return context.parsed.y + '% מהזמן';
+                                    return context.parsed.y + chartCopy.tooltipSuffix;
                                 }
                             }
                         }
@@ -551,33 +1191,70 @@
             });
         }
 
-        function initPlotly() {
-            const size = 24;
+        function buildKnowledgeSurface(eraKey) {
+            const era = readinessData[eraKey];
+            const size = 28;
             const zData = [];
 
             for (let i = 0; i < size; i++) {
                 const row = [];
                 for (let j = 0; j < size; j++) {
-                    const distance = Math.sqrt(Math.pow(i - size / 2, 2) + Math.pow(j - size / 2, 2));
-                    const wave = Math.sin(distance / 2.8) * 6;
-                    const peak = Math.max(0, 18 - distance * 1.2);
-                    const baseline = state.currentMode === 'future' ? 14 : 4;
-                    row.push(baseline + wave + peak);
+                    const xOffset = (i - size / 2) / (4.6 * era.graphSpread);
+                    const yOffset = (j - size / 2) / (4.1 * era.graphSpread);
+                    const distance = Math.sqrt((xOffset * xOffset) + (yOffset * yOffset));
+                    const centralRise = era.graphLevel * Math.exp(-distance * 1.55);
+                    const outerWave = Math.sin(distance * 5) * (1.4 + era.graphLevel / 18);
+                    const uplift = era.graphLevel / 3.1;
+                    row.push(Math.max(0, uplift + centralRise + outerWave));
                 }
                 zData.push(row);
             }
+
+            return zData;
+        }
+
+        function buildKnowledgeTrace(eraKey) {
+            const era = readinessData[eraKey];
+            const pointCount = era.graphPoints;
+            const x = [];
+            const y = [];
+            const z = [];
+
+            for (let index = 0; index < pointCount; index++) {
+                const progress = index / Math.max(1, pointCount - 1);
+                const angle = progress * Math.PI * 2.6;
+                const radius = (1 - progress * 0.72) * 10 * era.graphSpread;
+                x.push(Math.cos(angle) * radius);
+                y.push(Math.sin(angle) * radius);
+                z.push((progress * era.graphLevel * 1.45) + (Math.sin(angle * 1.7) * 0.6));
+            }
+
+            return {
+                x,
+                y,
+                z
+            };
+        }
+
+        function initPlotly() {
+            const era = readinessData[state.readinessEra];
+            const zData = buildKnowledgeSurface(state.readinessEra);
+            const knowledgePath = buildKnowledgeTrace(state.readinessEra);
+            const plotCopy = t('plot');
+            const localizedEra = t('readinessEras.' + state.readinessEra);
 
             const data = [{
                 z: zData,
                 type: 'surface',
                 colorscale: [
-                    [0, '#1e3a8a'],
-                    [0.35, '#0ea5e9'],
-                    [0.65, '#a3e635'],
+                    [0, '#0f172a'],
+                    [0.2, '#1d4ed8'],
+                    [0.48, '#06b6d4'],
+                    [0.72, '#84cc16'],
                     [1, '#f8fafc']
                 ],
                 showscale: false,
-                opacity: 0.96,
+                opacity: 0.97,
                 contours: {
                     z: {
                         show: true,
@@ -588,46 +1265,154 @@
                     }
                 },
                 lighting: {
-                    ambient: 0.8,
-                    diffuse: 0.9,
-                    fresnel: 0.2,
-                    roughness: 0.7,
-                    specular: 0.25
+                    ambient: 0.88,
+                    diffuse: 0.95,
+                    fresnel: 0.28,
+                    roughness: 0.48,
+                    specular: 0.35
                 }
+            }, {
+                x: knowledgePath.x,
+                y: knowledgePath.y,
+                z: knowledgePath.z,
+                type: 'scatter3d',
+                mode: 'lines+markers',
+                line: {
+                    color: '#fde68a',
+                    width: 7
+                },
+                marker: {
+                    size: 3.5,
+                    color: '#ffffff',
+                    opacity: 0.9
+                },
+                hoverinfo: 'skip'
             }];
 
             const layout = {
-                title: { text: 'התפשטות הדעת בעולם', font: { color: '#ffffff', size: 18 } },
+                title: { text: plotCopy.title, font: { color: '#ffffff', size: 18 } },
                 autosize: true,
                 paper_bgcolor: 'rgba(0,0,0,0)',
                 plot_bgcolor: 'rgba(0,0,0,0)',
                 margin: { l: 0, r: 0, b: 0, t: 36 },
                 scene: {
                     xaxis: {
+                        title: { text: plotCopy.xAxis, font: { color: '#94a3b8', size: 11 } },
                         showgrid: false,
                         zeroline: false,
                         showticklabels: false,
                         color: '#64748b'
                     },
                     yaxis: {
+                        title: { text: plotCopy.yAxis, font: { color: '#94a3b8', size: 11 } },
                         showgrid: false,
                         zeroline: false,
                         showticklabels: false,
                         color: '#64748b'
                     },
                     zaxis: {
+                        title: { text: plotCopy.zAxis, font: { color: '#94a3b8', size: 11 } },
                         showgrid: false,
                         zeroline: false,
                         showticklabels: false,
                         color: '#64748b',
                         backgroundcolor: 'rgba(15, 23, 42, 0.18)'
                     },
-                    camera: { eye: { x: 1.45, y: 1.35, z: 1.1 } }
+                    camera: { eye: { x: 1.55, y: 1.25, z: 1.08 } }
                 }
             };
 
             const config = { responsive: true, displayModeBar: false };
-            Plotly.newPlot('knowledgeHeatmap', data, layout, config);
+            Plotly.react('knowledgeHeatmap', data, layout, config);
+
+            const caption = document.getElementById('knowledgeGraphCaption');
+            if (caption) {
+                caption.innerText = localizedEra.graphCaption;
+            }
+        }
+
+        function setReadinessEra(eraKey) {
+            const era = readinessData[eraKey];
+            const localizedEra = t('readinessEras.' + eraKey);
+            if (!era) {
+                return;
+            }
+
+            state.readinessEra = eraKey;
+
+            const title = document.getElementById('readiness-title');
+            const summary = document.getElementById('readiness-summary');
+            const scoreValue = document.getElementById('readiness-score-value');
+            const scoreBar = document.getElementById('readiness-score-bar');
+            const abundanceValue = document.getElementById('readiness-abundance-value');
+            const abundanceBar = document.getElementById('readiness-abundance-bar');
+            const exposureValue = document.getElementById('readiness-exposure-value');
+            const exposureBar = document.getElementById('readiness-exposure-bar');
+            const knowledgeValue = document.getElementById('readiness-knowledge-value');
+            const knowledgeBar = document.getElementById('readiness-knowledge-bar');
+
+            if (title) {
+                title.innerText = localizedEra.title;
+            }
+
+            if (summary) {
+                summary.innerText = localizedEra.summary;
+            }
+
+            if (scoreValue) {
+                scoreValue.innerText = era.readiness + '%';
+            }
+
+            if (scoreBar) {
+                scoreBar.style.width = era.readiness + '%';
+            }
+
+            if (abundanceValue) {
+                abundanceValue.innerText = era.abundance + '%';
+            }
+
+            if (abundanceBar) {
+                abundanceBar.style.width = era.abundance + '%';
+            }
+
+            if (exposureValue) {
+                exposureValue.innerText = era.exposure + '%';
+            }
+
+            if (exposureBar) {
+                exposureBar.style.width = era.exposure + '%';
+            }
+
+            if (knowledgeValue) {
+                knowledgeValue.innerText = era.knowledge + '%';
+            }
+
+            if (knowledgeBar) {
+                knowledgeBar.style.width = era.knowledge + '%';
+            }
+
+            Object.keys(readinessData).forEach((key) => {
+                const readinessButton = document.getElementById('readiness-btn-' + key);
+                const knowledgeButton = document.getElementById('knowledge-btn-' + key);
+                const isActive = key === eraKey;
+                const buttonText = t('readinessButtons.' + key);
+
+                if (readinessButton) {
+                    readinessButton.textContent = buttonText;
+                    readinessButton.className = isActive
+                        ? 'px-4 py-2 rounded-full text-sm font-bold bg-amber-500 text-white border border-amber-500 shadow-sm transition-colors'
+                        : 'px-4 py-2 rounded-full text-sm font-bold bg-white text-gray-700 border border-gray-200 hover:border-amber-300 transition-colors';
+                }
+
+                if (knowledgeButton) {
+                    knowledgeButton.textContent = buttonText;
+                    knowledgeButton.className = isActive
+                        ? 'px-3 py-1.5 rounded-full text-xs font-bold bg-amber-400 text-gray-900 border border-amber-300 shadow-sm transition-colors'
+                        : 'px-3 py-1.5 rounded-full text-xs font-bold bg-white/10 text-gray-200 border border-white/10 hover:bg-white/15 transition-colors';
+                }
+            });
+
+            initPlotly();
         }
 
         window.updateChart = function(mode) {
@@ -635,19 +1420,22 @@
             const btnCurrent = document.getElementById('btn-current');
             const btnFuture = document.getElementById('btn-future');
             const descEl = document.getElementById('chart-desc');
+            const chartCopy = t('chart');
 
             if (mode === 'current') {
                 btnCurrent.className = 'px-4 py-1 text-sm rounded-md bg-white shadow-sm text-gray-800 font-medium transition-all';
                 btnFuture.className = 'px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all';
                 state.chartInstance.data.datasets[0].data = chartData.current.data;
+                state.chartInstance.data.datasets[0].label = chartCopy.currentLabel;
                 state.chartInstance.data.datasets[0].backgroundColor = ['#ef4444', '#f59e0b', '#3b82f6', '#6366f1'];
-                descEl.innerText = chartData.current.desc;
+                descEl.innerText = chartCopy.currentDesc;
             } else {
                 btnFuture.className = 'px-4 py-1 text-sm rounded-md bg-amber-100 shadow-sm text-amber-900 font-medium transition-all';
                 btnCurrent.className = 'px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all';
                 state.chartInstance.data.datasets[0].data = chartData.future.data;
+                state.chartInstance.data.datasets[0].label = chartCopy.futureLabel;
                 state.chartInstance.data.datasets[0].backgroundColor = ['#d1d5db', '#d1d5db', '#fbbf24', '#4f46e5'];
-                descEl.innerText = chartData.future.desc;
+                descEl.innerText = chartCopy.futureDesc;
             }
 
             state.chartInstance.update();
@@ -681,7 +1469,9 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             initChart();
-            initPlotly();
+            applyStaticTranslations();
+            setReadinessEra('2026');
+            updateChart('current');
             window.addEventListener('resize', () => {
                 const plotElement = document.getElementById('knowledgeHeatmap');
                 if (plotElement) {
