@@ -3,116 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO & Metadata -->
-    <title>שפע בר קיימא | רמב"ם, טכנולוגיה ועתיד האנושות</title>
-    <meta name="description" content="הפלטפורמה הדיגיטלית לחקר החיבור בין רובוטיקה, UBI וחזון אחרית הימים של הרמב"ם. גלו איך טכנולוגיה משרתת רוחניות.">
-    
-    <!-- Tailwind CSS -->
+    <title>שפע בר קיימא: רמב"ם, חסידות והעתיד הטכנולוגי</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Plotly.js -->
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Secular+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&family=Secular+One&display=swap" rel="stylesheet">
 
     <style>
-        body { font-family: 'Heebo', sans-serif; scroll-behavior: smooth; }
-        h1, h2, h3, .brand-font { font-family: 'Secular One', sans-serif; }
-        .chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; height: 350px; max-height: 400px; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f8fafc; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        .gradient-text { background: linear-gradient(135deg, #2563EB, #D97706); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-panel { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(229, 231, 235, 0.6); }
-        .card-hover-effect { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .card-hover-effect:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
-        .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); width: 4px; height: 100%; background: linear-gradient(to bottom, #E5E7EB, #93C5FD, #FDE68A, #A7F3D0); z-index: 0; }
-        .timeline-point { z-index: 10; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .timeline-point:hover { transform: scale(1.25); }
-        
-        /* Premium Loading Animation */
-        .loader-dots { display: flex; justify-content: center; alignItems: center; gap: 6px; height: 40px; }
-        .loader-dots div { width: 10px; height: 10px; background-color: #3B82F6; border-radius: 50%; animation: bounce 1.4s infinite ease-in-out both; }
-        .loader-dots div:nth-child(1) { animation-delay: -0.32s; }
-        .loader-dots div:nth-child(2) { animation-delay: -0.16s; }
-        @keyframes bounce { 0%, 80%, 100% { transform: scale(0); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
-        .ai-output strong { color: #1e3a8a; font-weight: 700; }
-        .ai-output p { margin-bottom: 0.75rem; }
-        html { scroll-padding-top: 5rem; }
+        body {
+            font-family: 'Heebo', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .brand-font {
+            font-family: 'Secular One', sans-serif;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .gradient-text {
+            background: linear-gradient(to left, #2563EB, #D97706);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        .timeline-point {
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-point:hover {
+            transform: scale(1.2);
+        }
+
+        .dot-flashing {
+            position: relative;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #3B82F6;
+            color: #3B82F6;
+            animation: dot-flashing 1s infinite linear alternate;
+            animation-delay: 0.5s;
+        }
+
+        .dot-flashing::before,
+        .dot-flashing::after {
+            content: "";
+            display: inline-block;
+            position: absolute;
+            top: 0;
+        }
+
+        .dot-flashing::before {
+            left: -15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #3B82F6;
+            color: #3B82F6;
+            animation: dot-flashing 1s infinite alternate;
+            animation-delay: 0s;
+        }
+
+        .dot-flashing::after {
+            left: 15px;
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            background-color: #3B82F6;
+            color: #3B82F6;
+            animation: dot-flashing 1s infinite alternate;
+            animation-delay: 1s;
+        }
+
+        @keyframes dot-flashing {
+            0% { background-color: #3B82F6; }
+            50%, 100% { background-color: #e2e8f0; }
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900 flex flex-col min-h-screen">
-
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass-panel shadow-sm">
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-blue-100 selection:text-blue-900">
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="flex-shrink-0 flex items-center cursor-pointer group" onclick="window.scrollTo(0,0)">
-                    <span class="text-2xl font-bold brand-font text-blue-600 group-hover:text-blue-700 transition-colors">שפע בר קיימא</span>
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold brand-font text-blue-600">שפע בר קיימא</span>
                 </div>
-                <div class="hidden md:flex space-x-8 space-x-reverse items-center">
-                    <button onclick="scrollToSection('vision')" class="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors">החזון</button>
-                    <button onclick="scrollToSection('technology')" class="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors">טכנולוגיה</button>
-                    <button onclick="scrollToSection('spirituality')" class="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors">חסידות</button>
-                    <button onclick="scrollToSection('ai-insights')" class="text-blue-700 hover:text-blue-900 bg-blue-50/80 px-4 py-2 rounded-full text-sm font-bold transition-all border border-blue-200 shadow-sm">AI וגאולה ✨</button>
-                    <button onclick="scrollToSection('research')" class="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors">מחקר</button>
+                <div class="hidden md:flex space-x-8 space-x-reverse">
+                    <button onclick="scrollToSection('vision')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">החזון</button>
+                    <button onclick="scrollToSection('technology')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">טכנולוגיה</button>
+                    <button onclick="scrollToSection('spirituality')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">חסידות</button>
+                    <button onclick="scrollToSection('ai-insights')" class="text-blue-600 hover:text-blue-800 bg-blue-50 px-3 py-2 rounded-md text-sm font-bold transition-colors border border-blue-200">AI וגאולה ✨</button>
+                    <button onclick="scrollToSection('research')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">מחקר</button>
                 </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-blue-600 focus:outline-none">
+                        <span class="text-2xl">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-right">
+                <button onclick="scrollToSection('vision')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">החזון</button>
+                <button onclick="scrollToSection('technology')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">טכנולוגיה</button>
+                <button onclick="scrollToSection('spirituality')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">חסידות</button>
+                <button onclick="scrollToSection('ai-insights')" class="block w-full text-right text-blue-600 bg-blue-50 hover:bg-blue-100 px-3 py-2 rounded-md text-base font-bold">AI וגאולה ✨</button>
+                <button onclick="scrollToSection('research')" class="block w-full text-right text-gray-600 hover:bg-gray-50 hover:text-blue-600 px-3 py-2 rounded-md text-base font-medium">מחקר</button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header id="vision" class="pt-32 pb-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-50 via-white to-amber-50/30">
+    <header id="vision" class="pt-24 pb-12 lg:pt-32 lg:pb-24 bg-gradient-to-br from-blue-50 via-white to-amber-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl tracking-tight font-extrabold text-slate-900 sm:text-5xl md:text-6xl mb-6">
+            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-6">
                 <span class="block">עידן השפע והדעת</span>
-                <span class="block gradient-text mt-2 text-3xl sm:text-5xl lg:text-6xl pb-2">רמב"ם, רובוטיקה וחסידות</span>
+                <span class="block gradient-text mt-2 text-3xl sm:text-5xl">רמב"ם, רובוטיקה וחסידות</span>
             </h1>
-            <p class="mt-6 max-w-2xl mx-auto text-xl text-slate-600 leading-relaxed">
-                סינתזה ייחודית בין חזון אחרית הימים של הרמב"ם, המהפכה הטכנולוגית (AI ורובוטים), ומודל ההכנסה הבסיסית (UBI).
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-500">
+                סינתזה ייחודית בין חזון אחרית הימים של הרמב"ם, המהפכה הטכנולוגית (AI ורובוטים), ומודל ה-UBI.
+                העולם מתעלה למצב בו העיסוק היחיד הוא "לדעת את ה'".
             </p>
-            <div class="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="scrollToSection('ai-insights')" class="px-8 py-3.5 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 shadow-lg transition-all flex items-center justify-center gap-2">
-                    סימולטור גאולה AI <span class="text-amber-300 text-xl">✨</span>
+            <div class="mt-10 flex justify-center gap-4">
+                <button onclick="scrollToSection('technology')" class="px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1">
+                    לחקור את המודל
+                </button>
+                <button onclick="scrollToSection('ai-insights')" class="px-8 py-3 border border-gray-300 text-base font-medium rounded-full text-gray-700 bg-white hover:bg-gray-50 md:py-4 md:text-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                    סימולטור גאולה
+                    <span class="text-amber-500">✨</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 pb-24 mt-12">
-
-        <!-- Section 1: Technology & UBI -->
-        <section id="technology">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 brand-font">התשתית החומרית: רובוטים ו-UBI</h2>
-                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mt-6 rounded-full"></div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 pb-24">
+        <section id="technology" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 brand-font">התשתית החומרית: רובוטים ו-UBI</h2>
+                <div class="w-24 h-1 bg-blue-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    בחלק זה אנו בוחנים כיצד הטכנולוגיה משמשת ככלי להגשמת נבואות הרמב"ם.
+                    בעולם בו רובוטים מבצעים את המלאכה הפיזית, נוצר "שפע בר קיימא" המאפשר הכנסה בסיסית אוניברסלית (UBI).
+                    זהו הבסיס החומרי המאפשר את השחרור הרוחני.
+                </p>
             </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-slate-100">
-                    <div class="flex justify-between items-center mb-8 gap-4">
-                        <h3 class="text-xl font-bold text-slate-800">הקצאת זמן אנושית</h3>
-                        <div class="flex bg-slate-100 p-1.5 rounded-xl">
-                            <button onclick="updateChart('current')" id="btn-current" class="px-4 py-1.5 text-sm rounded-lg bg-white shadow-sm font-bold">היום</button>
-                            <button onclick="updateChart('future')" id="btn-future" class="px-4 py-1.5 text-sm rounded-lg text-slate-500 hover:text-slate-800">עידן השפע</button>
+                <div class="bg-white rounded-2xl shadow-xl p-6 border border-gray-100">
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 class="text-xl font-bold text-gray-800">הקצאת זמן אנושית: חול מול קודש</h3>
+                        <div class="flex bg-gray-100 p-1 rounded-lg">
+                            <button onclick="updateChart('current')" id="btn-current" class="px-4 py-1 text-sm rounded-md bg-white shadow-sm text-gray-800 font-medium transition-all">היום</button>
+                            <button onclick="updateChart('future')" id="btn-future" class="px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all">ימות המשיח</button>
                         </div>
                     </div>
-                    <div class="chart-container"><canvas id="timeAllocationChart"></canvas></div>
-                    <div class="mt-8 p-5 bg-blue-50/50 rounded-2xl border border-blue-100/50">
-                        <p id="chart-desc" class="text-sm text-blue-900 font-medium text-center">המצב כיום: רוב הזמן מושקע בהישרדות. הפנאי מועט.</p>
+
+                    <div class="chart-container">
+                        <canvas id="timeAllocationChart"></canvas>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100">
+                        <p id="chart-desc" class="text-sm text-blue-800 font-medium text-center">
+                            המצב כיום: רוב הזמן מושקע בהישרדות ופרנסה. הפנאי ללימוד רוחני מצומצם.
+                        </p>
                     </div>
                 </div>
-                <div class="space-y-5">
-                    <div class="card-hover-effect p-6 bg-white rounded-2xl shadow-sm border border-slate-200">
+
+                <div class="space-y-6">
+                    <div class="group cursor-pointer p-6 bg-white hover:bg-amber-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
                         <div class="flex items-start">
-                            <div class="flex-shrink-0 w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-3xl">🤖</div>
-                            <div class="mr-5">
-                                <h4 class="text-xl font-bold">רובוטיקה ואוטומציה</h4>
-                                <p class="mt-2 text-slate-600 text-sm">מערכות AI מייצרות כלכלה של שפע אינסופי.</p>
+                            <div class="flex-shrink-0 w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-2xl">🤖</div>
+                            <div class="mr-4">
+                                <h4 class="text-lg font-bold text-gray-900">רובוטיקה ואוטומציה</h4>
+                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                    "ובאותו הזמן לא יהיה שם לא רעב ולא מלחמה..." (רמב"ם). הרובוטים מחליפים את הצורך במאבק על משאבים ומייצרים שפע חומרי זמין לכל.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer p-6 bg-white hover:bg-blue-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-2xl">💰</div>
+                            <div class="mr-4">
+                                <h4 class="text-lg font-bold text-gray-900">הכנסה בסיסית אוניברסלית (UBI)</h4>
+                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                    חלוקת השפע בצורה שוויונית המאפשרת לאדם להשתחרר מדאגת הפרנסה ("פת בסלו") ולהתפנות לעיקר: השגת החכמה.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="group cursor-pointer p-6 bg-white hover:bg-green-50 rounded-xl shadow-sm hover:shadow-md transition-all border border-gray-200" onclick="highlightConcept(this)">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-2xl">🌍</div>
+                            <div class="mr-4">
+                                <h4 class="text-lg font-bold text-gray-900">אומות העולם</h4>
+                                <p class="mt-2 text-gray-600 text-sm leading-relaxed">
+                                    השפע והתיקון אינם מוגבלים לישראל בלבד. כל העולם יתעלה, והרובוטים ישרתו את האנושות כולה כדי לאפשר דעת ה' אוניברסלית.
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -120,79 +255,187 @@
             </div>
         </section>
 
-        <!-- Section 2: AI Tools - THE UPDATED SECURE SECTION -->
-        <section id="ai-insights">
-            <div class="text-center mb-16">
-                <span class="bg-blue-100 text-blue-800 text-xs font-bold px-4 py-1.5 rounded-full mb-6 inline-block tracking-wider">SECURE SERVERLESS MODE</span>
-                <h2 class="text-3xl font-bold text-slate-900 brand-font">סימולטור הגאולה האינטראקטיבי</h2>
-                <div class="w-24 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600 mx-auto mt-6 rounded-full"></div>
+        <section id="spirituality" class="scroll-mt-24">
+            <div class="bg-gray-900 text-white rounded-3xl p-8 lg:p-12 overflow-hidden relative shadow-2xl">
+                <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-blue-600 rounded-full opacity-20 filter blur-3xl"></div>
+                <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-amber-600 rounded-full opacity-20 filter blur-3xl"></div>
+
+                <div class="relative z-10 text-center mb-10">
+                    <h2 class="text-3xl font-bold brand-font text-white">המטרה: ומלאה הארץ דעה</h2>
+                    <p class="mt-4 text-gray-300 max-w-2xl mx-auto">
+                        ע"פ תורת החסידות וחב"ד, השפע הגשמי הוא רק אמצעי.
+                        התרשים להלן מציג את התפשטות ה"דעת" בעולם כפונקציה של פניות ורווחה.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20 h-96 w-full flex items-center justify-center">
+                        <div id="knowledgeHeatmap" class="w-full h-full"></div>
+                    </div>
+
+                    <div class="flex flex-col justify-center space-y-6">
+                        <blockquote class="border-r-4 border-amber-500 pr-4 italic text-lg text-gray-200">
+                            "ולא יהיה עסק כל העולם אלא לדעת את ה' בלבד... לפיכך יהיו ישראל חכמים גדולים ויודעים דברים הסתומים..."
+                            <footer class="mt-2 text-sm text-amber-400 font-bold not-italic">- רמב"ם, הלכות מלכים יב</footer>
+                        </blockquote>
+
+                        <div class="bg-blue-900/50 p-6 rounded-lg border border-blue-500/30">
+                            <h4 class="text-xl font-bold text-blue-300 mb-2">תפקיד החסידות</h4>
+                            <p class="text-gray-300 text-sm">
+                                תורת חב"ד (חכמה, בינה, דעת) מעניקה את הכלים האינטלקטואליים להשתמש בפנאי שייווצר.
+                                לא בטלה, אלא התבוננות מעמיקה באחדות ה'. הרובוט משחרר את הידיים, החסידות ממלאת את הראש והלב.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ai-insights" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <span class="bg-amber-100 text-amber-800 text-sm font-bold px-3 py-1 rounded-full mb-4 inline-block">מופעל על ידי Gemini LLM</span>
+                <h2 class="text-3xl font-bold text-gray-900 brand-font">סימולטור הגאולה האישי</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    השתמשו בבינה מלאכותית כדי לראות את עצמכם בחזון העתידי.
+                </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Tool 1: Future Routine -->
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
-                    <div class="bg-gradient-to-br from-blue-600 to-blue-800 p-8 text-white relative">
-                        <h3 class="text-2xl font-bold flex items-center gap-3"><span class="text-3xl">🚀</span> האני העתידי שלי</h3>
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden flex flex-col">
+                    <div class="bg-blue-600 p-6 text-white">
+                        <h3 class="text-2xl font-bold flex items-center gap-2">
+                            <span>🚀</span> האני העתידי שלי
+                        </h3>
+                        <p class="text-blue-100 text-sm mt-1">איך ייראה יום בחייכם כשהרובוטים יעבדו?</p>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col bg-slate-50/50">
-                        <label class="block text-sm font-bold text-slate-700 mb-3">מהו תחום העיסוק שלך?</label>
-                        <input type="text" id="userProfession" placeholder="לדוגמה: תכנות, חינוך, אמנות..." class="w-full px-5 py-3.5 bg-white border border-slate-300 rounded-xl focus:ring-4 focus:ring-blue-500/20 focus:border-blue-500 mb-6" onkeypress="if(event.key === 'Enter') generateFutureRoutine()">
-                        
-                        <button onclick="generateFutureRoutine()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl shadow-md transition-transform active:scale-95">
-                            חולל סדר יום גאולתי ✨
+                    <div class="p-6 flex-1 flex flex-col">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">מהו העיסוק הנוכחי שלך?</label>
+                        <input type="text" id="userProfession" placeholder="לדוגמה: רואה חשבון, מורה, נגר..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 mb-4 transition-colors" onkeypress="if(event.key === 'Enter') generateFutureRoutine()">
+                        <button onclick="generateFutureRoutine()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                            <span>צור סדר יום גאולתי</span>
+                            <span class="text-amber-300">✨</span>
                         </button>
-                        
-                        <div id="routineOutput" class="mt-8 p-6 bg-white rounded-xl border border-blue-100 shadow-sm hidden ai-output relative">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
-                            <div id="routineText"></div>
+
+                        <div id="routineOutput" class="mt-6 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[150px] text-gray-700 text-sm leading-relaxed hidden"></div>
+                        <div id="routineLoader" class="hidden mt-8 flex justify-center">
+                            <div class="dot-flashing"></div>
                         </div>
-                        <div id="routineLoader" class="hidden mt-10 mb-4 flex justify-center"><div class="loader-dots"><div></div><div></div><div></div></div></div>
                     </div>
                 </div>
 
-                <!-- Tool 2: Ask the Sage -->
-                <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden flex flex-col">
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 text-white relative">
-                        <h3 class="text-2xl font-bold flex items-center gap-3"><span class="text-3xl">📜</span> שאל את החכם</h3>
+                <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden flex flex-col">
+                    <div class="bg-gray-800 p-6 text-white">
+                        <h3 class="text-2xl font-bold flex items-center gap-2">
+                            <span>📜</span> שאל את החכם
+                        </h3>
+                        <p class="text-gray-300 text-sm mt-1">חיבור בין טכנולוגיה, רמב"ם וחסידות</p>
                     </div>
-                    <div class="p-8 flex-1 flex flex-col bg-slate-50/50">
-                        <label class="block text-sm font-bold text-slate-700 mb-3">מה תרצה לשאול?</label>
-                        <input type="text" id="userQuestion" placeholder="איך AI משתלב עם כוונת הלב?" class="w-full px-5 py-3.5 bg-white border border-slate-300 rounded-xl focus:ring-4 focus:ring-slate-500/20 focus:border-slate-500 mb-6" onkeypress="if(event.key === 'Enter') askTheSage()">
-                        
-                        <button onclick="askTheSage()" class="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-4 rounded-xl shadow-md transition-transform active:scale-95">
-                            קבל תשובה מהמקורות 💡
+                    <div class="p-6 flex-1 flex flex-col">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">מה תרצה לדעת על העתיד?</label>
+                        <input type="text" id="userQuestion" placeholder="לדוגמה: איך AI מסתדר עם שבת?" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-gray-500 mb-4 transition-colors" onkeypress="if(event.key === 'Enter') askTheSage()">
+                        <button onclick="askTheSage()" class="w-full bg-gray-800 hover:bg-gray-900 text-white font-bold py-3 rounded-lg transition-all shadow-md hover:shadow-lg flex justify-center items-center gap-2">
+                            <span>שאל את האורקל</span>
+                            <span class="text-amber-300">✨</span>
                         </button>
-                        
-                        <div id="answerOutput" class="mt-8 p-6 bg-amber-50/50 rounded-xl border border-amber-200 shadow-sm hidden ai-output relative">
-                            <div class="absolute top-0 left-0 w-1 h-full bg-amber-500"></div>
-                            <div id="answerText"></div>
+
+                        <div id="answerOutput" class="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-100 min-h-[150px] text-gray-800 text-sm leading-relaxed hidden"></div>
+                        <div id="answerLoader" class="hidden mt-8 flex justify-center">
+                            <div class="dot-flashing"></div>
                         </div>
-                        <div id="answerLoader" class="hidden mt-10 mb-4 flex justify-center"><div class="loader-dots"><div></div><div></div><div></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="research" class="scroll-mt-24">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 brand-font">עריכת תוכנית המחקר</h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+                    מפת הדרכים המחקרית לביסוס המודל של "שפע בר קיימא" על פי מקורות היהדות והחזון הטכנולוגי.
+                </p>
+            </div>
+
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline-line hidden md:block"></div>
+
+                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-blue-600 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">1</div>
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-r-4 border-blue-600">
+                        <h3 class="mb-2 font-bold text-gray-800 text-xl">שלב א': איסוף מקורות</h3>
+                        <p class="text-sm text-gray-600">
+                            ליקוט מקורות מהרמב"ם (הלכות מלכים), מאמרי חסידות חב"ד העוסקים ב"דירה בתחתונים", ומקורות על אומות העולם לעתיד לבוא.
+                        </p>
+                        <span class="inline-block mt-2 text-xs font-semibold text-blue-600 bg-blue-100 px-2 py-1 rounded">הושלם חלקית</span>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-amber-500 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">2</div>
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-l-4 border-amber-500 text-right md:text-left">
+                        <h3 class="mb-2 font-bold text-gray-800 text-xl text-right">שלב ב': אינטגרציה טכנולוגית</h3>
+                        <p class="text-sm text-gray-600 text-right">
+                            ניתוח מודלים של UBI ורובוטיקה. השוואה בין "חברת הפנאי" המערבית לבין "חברת הדעת" החסידית. הגדרת ההבדל בין בטלה ליצירה רוחנית.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-gray-800 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">3</div>
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-r-4 border-gray-800">
+                        <h3 class="mb-2 font-bold text-gray-800 text-xl">שלב ג': סינתזה ופרסום</h3>
+                        <p class="text-sm text-gray-600">
+                            כתיבת המסמך המלא: "שפע בר קיימא - לפי הרובוטים ותורת החסידות". עריכת התוכנית להפצה בקרב קהלים דתיים וטכנולוגיים כאחד.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                    <div class="order-1 w-5/12 hidden md:block"></div>
+                    <div class="z-20 flex items-center order-1 bg-green-500 shadow-xl w-10 h-10 rounded-full timeline-point justify-center text-white font-bold">4</div>
+                    <div class="order-1 w-full md:w-5/12 px-6 py-4 bg-white rounded-lg shadow-md border-l-4 border-green-500 text-right md:text-left">
+                        <h3 class="mb-2 font-bold text-gray-800 text-xl text-right">שלב ד': יישום גלובלי</h3>
+                        <p class="text-sm text-gray-600 text-right">
+                            פיתוח מודלים חינוכיים לאומות העולם ("שבע מצוות בני נח" בהקשר של שפע ומוסר), ושימוש ב-AI להפצת הדעת.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-white pt-12 pb-8 mt-12 text-center">
-        <p class="text-slate-500 text-sm">© 2024-2025 שפע בר קיימא | נבנה עם Vercel & Gemini</p>
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">© 2024 שפע בר קיימא | מבוסס על משנת הרמב"ם ותורת החסידות</p>
+            <p class="text-gray-600 text-sm mt-2">פותח למטרות לימוד והשראה</p>
+        </div>
     </footer>
 
-    <!-- JavaScript Logic -->
     <script>
-        // Data Store for Charts
-        const chartData = {
-            current: { data: [60, 20, 15, 5], label: 'היום', desc: 'המצב כיום: רוב הזמן מושקע בהישרדות. הפנאי מועט.' },
-            future: { data: [0, 5, 25, 70], label: 'עתיד', desc: 'עידן השפע: הרובוטים עובדים, רוב הזמן מוקדש להתפתחות רוחנית.' }
+        const state = {
+            currentMode: 'current',
+            chartInstance: null
         };
-        let chartInstance = null;
 
-        // --- NEW SECURE BACKEND CALL ---
-        // עכשיו הקוד פונה לנתיב /api/gemini שנמצא בשרת (Vercel) במקום ישירות לגוגל!
+        const chartData = {
+            current: {
+                data: [60, 20, 15, 5],
+                label: 'חלוקת זמן נוכחית (שעות בשבוע)',
+                desc: 'המצב כיום: רוב הזמן מושקע בהישרדות ופרנסה (עבודה פיזית ובירוקרטיה). הפנאי ללימוד רוחני מצומצם ביותר.'
+            },
+            future: {
+                data: [0, 5, 25, 70],
+                label: 'ימות המשיח (שפע בר קיימא)',
+                desc: 'המצב העתידי: רובוטים ו-AI מבצעים את כל העבודה. UBI מספק ביטחון. 70% מהזמן מוקדש ל"לדעת את ה\'" ולימוד.'
+            }
+        };
+
         async function callSecureBackend(userPrompt, systemInstructionText) {
             try {
-                // הבקשה נשלחת לכתובת הפנימית של השרת שלך
                 const response = await fetch('/api/gemini', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -201,105 +444,251 @@
                         systemInstruction: systemInstructionText
                     })
                 });
-                
+
                 const data = await response.json();
-                
+
                 if (!response.ok) {
-                    console.error("Backend Error:", data.error);
-                    throw new Error(data.error || "שגיאת שרת");
+                    throw new Error(data.error || 'שגיאת שרת');
                 }
-                
+
                 return data.text;
-                
             } catch (error) {
-                console.error("Fetch Error:", error);
-                // הודעה ידידותית למקרה שהמשתמש מריץ מקומית בלי שרת Vercel
-                if(error.message.includes('Failed to fetch') || error.message.includes('Unexpected token')) {
-                     return "מצב פיתוח: האתר לא מחובר לשרת Vercel. יש להעלות את הקוד ל-Vercel כדי שהפונקציה /api/gemini תעבוד.";
+                console.error('Fetch Error:', error);
+                if (error.message.includes('Failed to fetch') || error.message.includes('Unexpected token')) {
+                    return 'מצב פיתוח: האתר לא מחובר לשרת Vercel. יש להעלות את הקוד ל-Vercel כדי שהפונקציה /api/gemini תעבוד.';
                 }
-                return "מצטערים, המערכת נתקלה בעומס. אנא נסו שוב מאוחר יותר.";
+                return 'מצטערים, המערכת נתקלה בשגיאה. אנא נסה שנית מאוחר יותר.';
             }
         }
 
-        // --- Tool 1 ---
         async function generateFutureRoutine() {
             const input = document.getElementById('userProfession');
             const outputDiv = document.getElementById('routineOutput');
-            const outputText = document.getElementById('routineText');
             const loader = document.getElementById('routineLoader');
             const profession = input.value.trim();
 
-            if (!profession) { input.classList.add('ring-2', 'ring-red-400'); setTimeout(() => input.classList.remove('ring-2', 'ring-red-400'), 1500); return; }
+            if (!profession) {
+                input.classList.add('ring-2', 'ring-red-400');
+                setTimeout(() => input.classList.remove('ring-2', 'ring-red-400'), 1500);
+                return;
+            }
 
             outputDiv.classList.add('hidden');
             loader.classList.remove('hidden');
 
-            const systemInstruction = `אתה עתידן יהודי מומחה לחב"ד ולרמב"ם. תאר ב-3 פסקאות קצרות (בוקר, צהריים, ערב) איך ייראה סדר היום של אדם שבעבר היה: ${profession}, כעת בעידן בו רובוטים עובדים וכולם חופשיים לעסוק בדעת ה'.`;
-            const prompt = `המקצוע שלי היה ${profession}. איך ייראה יומי?`;
+            const systemInstruction = 'אתה עתידן יהודי מומחה לחב"ד ולרמב"ם. תאר ב-3 חלקים קצרים (בוקר, צהריים, ערב) איך ייראה סדר היום של אדם שבעבר היה ' + profession + ', וכעת חי בעידן בו רובוטים עובדים וכולם חופשיים לעסוק בדעת ה\'. ענה בעברית, בקצרה, עד 100 מילים.';
+            const prompt = 'המקצוע שלי היה ' + profession + '. איך ייראה יומי בעידן השפע?';
 
-            // קריאה מאובטחת לשרת שלך!
-            const rawResult = await callSecureBackend(prompt, systemInstruction);
-            
-            let formattedResult = rawResult.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            outputText.innerHTML = formattedResult;
-            
+            const result = await callSecureBackend(prompt, systemInstruction);
+            outputDiv.innerHTML = result.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
             loader.classList.add('hidden');
             outputDiv.classList.remove('hidden');
         }
 
-        // --- Tool 2 ---
         async function askTheSage() {
             const input = document.getElementById('userQuestion');
             const outputDiv = document.getElementById('answerOutput');
-            const outputText = document.getElementById('answerText');
             const loader = document.getElementById('answerLoader');
             const question = input.value.trim();
 
-            if (!question) { input.classList.add('ring-2', 'ring-red-400'); setTimeout(() => input.classList.remove('ring-2', 'ring-red-400'), 1500); return; }
+            if (!question) {
+                input.classList.add('ring-2', 'ring-red-400');
+                setTimeout(() => input.classList.remove('ring-2', 'ring-red-400'), 1500);
+                return;
+            }
 
             outputDiv.classList.add('hidden');
             loader.classList.remove('hidden');
 
-            const systemInstruction = `אתה "חכם דיגיטלי" המשלב את הרמב"ם, תורת החסידות וטכנולוגיית רובוטיקה/UBI. ענה לשאלה ב-3 משפטים חכמים.`;
-            const prompt = `שאלה: ${question}`;
+            const systemInstruction = 'אתה חכם דיגיטלי המשלב את הרמב"ם, תורת החסידות, רובוטיקה, AI ו-UBI. ענה בעברית ב-3 עד 4 משפטים, בצורה חכמה ותמציתית, והסבר איך השפע הטכנולוגי משרת את היעד הרוחני.';
+            const prompt = 'שאלה: ' + question;
 
-            // קריאה מאובטחת לשרת שלך!
-            const rawResult = await callSecureBackend(prompt, systemInstruction);
-            
-            let formattedResult = rawResult.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
-            outputText.innerHTML = formattedResult;
-            
+            const result = await callSecureBackend(prompt, systemInstruction);
+            outputDiv.innerHTML = result.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
             loader.classList.add('hidden');
             outputDiv.classList.remove('hidden');
         }
 
-        // --- Init Chart ---
-        window.addEventListener('DOMContentLoaded', () => {
+        function initChart() {
             const ctx = document.getElementById('timeAllocationChart').getContext('2d');
-            Chart.defaults.font.family = "'Heebo', sans-serif";
-            chartInstance = new Chart(ctx, {
+
+            state.chartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['פרנסה', 'תחזוקה', 'פנאי', 'רוחניות'],
-                    datasets: [{ data: chartData.current.data, backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6'], borderRadius: 8 }]
+                    labels: ['עבודה / פרנסה', 'תחזוקה פיזית', 'פנאי ומשפחה', 'לימוד ודעת ה\''],
+                    datasets: [{
+                        label: chartData.current.label,
+                        data: chartData.current.data,
+                        backgroundColor: ['#ef4444', '#f59e0b', '#3b82f6', '#6366f1'],
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
                 },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { max: 100 } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            title: {
+                                display: true,
+                                text: 'אחוז מהזמן הער'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.parsed.y + '% מהזמן';
+                                }
+                            }
+                        }
+                    }
+                }
             });
-        });
+        }
+
+        function initPlotly() {
+            const size = 24;
+            const zData = [];
+
+            for (let i = 0; i < size; i++) {
+                const row = [];
+                for (let j = 0; j < size; j++) {
+                    const distance = Math.sqrt(Math.pow(i - size / 2, 2) + Math.pow(j - size / 2, 2));
+                    const wave = Math.sin(distance / 2.8) * 6;
+                    const peak = Math.max(0, 18 - distance * 1.2);
+                    const baseline = state.currentMode === 'future' ? 14 : 4;
+                    row.push(baseline + wave + peak);
+                }
+                zData.push(row);
+            }
+
+            const data = [{
+                z: zData,
+                type: 'surface',
+                colorscale: [
+                    [0, '#1e3a8a'],
+                    [0.35, '#0ea5e9'],
+                    [0.65, '#a3e635'],
+                    [1, '#f8fafc']
+                ],
+                showscale: false,
+                opacity: 0.96,
+                contours: {
+                    z: {
+                        show: true,
+                        usecolormap: true,
+                        highlightcolor: '#f8fafc',
+                        highlightwidth: 2,
+                        project: { z: true }
+                    }
+                },
+                lighting: {
+                    ambient: 0.8,
+                    diffuse: 0.9,
+                    fresnel: 0.2,
+                    roughness: 0.7,
+                    specular: 0.25
+                }
+            }];
+
+            const layout = {
+                title: { text: 'התפשטות הדעת בעולם', font: { color: '#ffffff', size: 18 } },
+                autosize: true,
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+                margin: { l: 0, r: 0, b: 0, t: 36 },
+                scene: {
+                    xaxis: {
+                        showgrid: false,
+                        zeroline: false,
+                        showticklabels: false,
+                        color: '#64748b'
+                    },
+                    yaxis: {
+                        showgrid: false,
+                        zeroline: false,
+                        showticklabels: false,
+                        color: '#64748b'
+                    },
+                    zaxis: {
+                        showgrid: false,
+                        zeroline: false,
+                        showticklabels: false,
+                        color: '#64748b',
+                        backgroundcolor: 'rgba(15, 23, 42, 0.18)'
+                    },
+                    camera: { eye: { x: 1.45, y: 1.35, z: 1.1 } }
+                }
+            };
+
+            const config = { responsive: true, displayModeBar: false };
+            Plotly.newPlot('knowledgeHeatmap', data, layout, config);
+        }
 
         window.updateChart = function(mode) {
-            chartInstance.data.datasets[0].data = chartData[mode].data;
-            chartInstance.data.datasets[0].backgroundColor = mode === 'current' ? ['#ef4444', '#f59e0b', '#3b82f6', '#8b5cf6'] : ['#cbd5e1', '#94a3b8', '#34d399', '#f59e0b'];
-            document.getElementById('chart-desc').innerText = chartData[mode].desc;
-            
-            document.getElementById('btn-current').className = mode === 'current' ? "px-4 py-1.5 text-sm rounded-lg bg-white shadow-sm font-bold" : "px-4 py-1.5 text-sm rounded-lg text-slate-500";
-            document.getElementById('btn-future').className = mode === 'future' ? "px-4 py-1.5 text-sm rounded-lg bg-amber-400 shadow-sm font-bold" : "px-4 py-1.5 text-sm rounded-lg text-slate-500";
-            chartInstance.update();
+            state.currentMode = mode;
+            const btnCurrent = document.getElementById('btn-current');
+            const btnFuture = document.getElementById('btn-future');
+            const descEl = document.getElementById('chart-desc');
+
+            if (mode === 'current') {
+                btnCurrent.className = 'px-4 py-1 text-sm rounded-md bg-white shadow-sm text-gray-800 font-medium transition-all';
+                btnFuture.className = 'px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all';
+                state.chartInstance.data.datasets[0].data = chartData.current.data;
+                state.chartInstance.data.datasets[0].backgroundColor = ['#ef4444', '#f59e0b', '#3b82f6', '#6366f1'];
+                descEl.innerText = chartData.current.desc;
+            } else {
+                btnFuture.className = 'px-4 py-1 text-sm rounded-md bg-amber-100 shadow-sm text-amber-900 font-medium transition-all';
+                btnCurrent.className = 'px-4 py-1 text-sm rounded-md text-gray-500 hover:text-gray-800 transition-all';
+                state.chartInstance.data.datasets[0].data = chartData.future.data;
+                state.chartInstance.data.datasets[0].backgroundColor = ['#d1d5db', '#d1d5db', '#fbbf24', '#4f46e5'];
+                descEl.innerText = chartData.future.desc;
+            }
+
+            state.chartInstance.update();
+            initPlotly();
         };
 
         window.scrollToSection = function(id) {
-            document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+            const el = document.getElementById(id);
+            if (!el) {
+                return;
+            }
+
+            el.scrollIntoView({ behavior: 'smooth' });
+
+            const menu = document.getElementById('mobile-menu');
+            if (menu && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
         };
+
+        window.highlightConcept = function(el) {
+            document.querySelectorAll('.group').forEach((div) => {
+                div.classList.remove('ring-2', 'ring-blue-500');
+            });
+            el.classList.add('ring-2', 'ring-blue-500');
+        };
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initChart();
+            initPlotly();
+            window.addEventListener('resize', () => {
+                const plotElement = document.getElementById('knowledgeHeatmap');
+                if (plotElement) {
+                    Plotly.Plots.resize(plotElement);
+                }
+            });
+        });
     </script>
 </body>
 </html>
